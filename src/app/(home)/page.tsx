@@ -12,8 +12,8 @@ import SVGBuyMeACoffee from "@/assets/icons/BuyMeACoffee.svg"
 import ImgAndrinNotionist from "@/assets/images/Andrin_Notionist.png"
 
 export const metadata = {
-  title: "Andrin Schaller",
-  description: "Personal website of Andrin Schaller - andrin.software",
+  title: "Andrin Schaller - Software Engineer and Computer Science Student",
+  description: "Personal website of Andrin Schaller",
   keywords: "Andrin Schaller, Andrin, andrin.software, Schaller",
   authors: [{ name: "Andrin Schaller" }],
   publisher: "Andrin Schaller"
@@ -66,7 +66,7 @@ export default function Home() {
         />
         <div className="mt-2 sm:mt-0 sm:ml-5">
           <h1 className="text-2xl font-black">Andrin Schaller</h1>
-          <h2 className="mt-1 font-light text-stone-400">Computer Science Student and Software Engineer</h2>
+          <h2 className="mt-1 font-light text-stone-400">Software Engineer and Computer Science Student</h2>
         </div>
       </div>
       <div className="relative mt-5 flex flex-col items-center sm:mt-20">
