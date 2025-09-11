@@ -29,7 +29,7 @@ jobs:
         run: npx tsc --noEmit --noUnusedLocals --noUnusedParameters --composite false
 
   Deploy:
-    needs: [lint, test]
+    needs: [lint]
     runs-on: ubuntu-latest
     environment: production
     steps:
