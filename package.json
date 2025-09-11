@@ -1,5 +1,6 @@
 {
   "name": "andrin.software",
+  "description": "Personal website of Andrin Schaller",
   "version": "0.1.0",
   "private": true,
   "scripts": {
