@@ -55,7 +55,7 @@ function SocialButton({ children, href, tooltip }: SocialButtonPropsType) {
 
 export default function Home() {
   return (
-    <div className="w-full max-w-screen-lg py-10 sm:py-36">
+    <div className="w-full max-w-screen-lg py-20 pt-4 sm:py-36 sm:pt-28">
       <div className="flex flex-col sm:flex-row sm:items-center">
         <Image
           src={ImgAndrinNotionist.src}
