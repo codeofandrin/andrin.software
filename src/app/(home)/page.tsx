@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
@@ -8,11 +9,12 @@ import SVGGithub from "@/assets/icons/GitHub.svg"
 import SVGEnvelope from "@/assets/icons/Envelope.svg"
 import SVGLinkedIn from "@/assets/icons/LinkedIn.svg"
 import SVGBuyMeACoffee from "@/assets/icons/BuyMeACoffee.svg"
+import ImgAndrinNotionist from "@/assets/images/Andrin_Notionist.png"
 
 export const metadata = {
   title: "Andrin Schaller",
-  description: "",
-  keywords: "",
+  description: "Personal website of Andrin Schaller - andrin.software",
+  keywords: "Andrin Schaller, Andrin, andrin.software, Schaller",
   authors: [{ name: "Andrin Schaller" }],
   publisher: "Andrin Schaller"
 }
@@ -29,6 +31,7 @@ interface SocialButtonPropsType {
   children: React.ReactElement
   href: string
   tooltip: string
+  size?: "default" | "sm" | "lg" | "icon" | "icon-sm"
 }
 
 function SocialButton({ children, href, tooltip }: SocialButtonPropsType) {
@@ -52,16 +55,20 @@ function SocialButton({ children, href, tooltip }: SocialButtonPropsType) {
 
 export default function Home() {
   return (
-    <div className="w-full max-w-screen-lg py-16 sm:py-36">
-      <div className="flex items-center">
-        <h1 className="text-2xl font-black">Andrin Schaller</h1>
-        <div className="ml-3">
-          <SocialButton href={Social.buyMeACoffee} tooltip="Buy me a coffee">
-            <SVGBuyMeACoffee />
-          </SocialButton>
+    <div className="w-full max-w-screen-lg py-10 sm:py-36">
+      <div className="flex flex-col sm:flex-row sm:items-center">
+        <Image
+          src={ImgAndrinNotionist.src}
+          alt="Profile Picture"
+          className="w-12 sm:w-16"
+          width={200}
+          height={200}
+        />
+        <div className="mt-2 sm:mt-0 sm:ml-5">
+          <h1 className="text-2xl font-black">Andrin Schaller</h1>
+          <h2 className="mt-1 font-light text-stone-400">Computer Science Student and Software Engineer</h2>
         </div>
       </div>
-      <h2 className="mt-1 font-light text-stone-400">Computer Science Student and Software Engineer</h2>
       <div className="relative mt-5 flex flex-col items-center sm:mt-20">
         <Ellipse className="top-5 h-48 w-40 rounded-[50%] bg-stone-500 blur-[50px] sm:h-60 sm:w-54" />
         <Ellipse className="top-10 h-72 w-72 rounded-full bg-gradient-to-t from-stone-950 from-70% to-white to-275% sm:h-92 sm:w-92" />
@@ -79,6 +86,9 @@ export default function Home() {
             </SocialButton>
             <SocialButton href={Social.linkedIn} tooltip="LinkedIn">
               <SVGLinkedIn />
+            </SocialButton>
+            <SocialButton href={Social.buyMeACoffee} tooltip="Buy me a coffee">
+              <SVGBuyMeACoffee />
             </SocialButton>
           </div>
         </div>
