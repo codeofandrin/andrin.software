@@ -76,7 +76,7 @@ export default function Home() {
           WORK IN PROGRESS
         </h3>
         <div className="mt-20 sm:mt-32">
-          <p className="text-lg sm:text-center sm:text-xl">In the meanwhile, you can contact me here</p>
+          <p className="text-lg sm:text-center sm:text-xl">In the meantime, you can contact me here</p>
           <div className="mt-10 flex w-full justify-evenly">
             <SocialButton href={`mailto:${EMail.general}`} tooltip="E-Mail">
               <SVGEnvelope />
