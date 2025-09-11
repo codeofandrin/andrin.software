@@ -55,8 +55,8 @@ export default function Home() {
       <h1 className="text-2xl font-black">Andrin Schaller</h1>
       <h2 className="mt-1 font-light text-stone-400">Computer Science Student and Software Engineer</h2>
       <div className="relative mt-20 flex flex-col items-center">
-        <Ellipse className="top-5 h-60 w-54 rounded-[50%] bg-blue-700 blur-[50px]" />
-        <Ellipse className="top-10 h-92 w-92 rounded-full bg-gradient-to-t from-stone-950 from-70% to-blue-400 to-275%" />
+        <Ellipse className="top-5 h-60 w-54 rounded-[50%] bg-stone-500 blur-[50px]" />
+        <Ellipse className="top-10 h-92 w-92 rounded-full bg-gradient-to-t from-stone-950 from-70% to-white to-275%" />
         <h3 className="mt-44 text-5xl font-bold tracking-[0.2em]">WORK IN PROGRESS</h3>
         <div>
           <p className="mt-32 text-xl">In the meanwhile, you can contact me here</p>
