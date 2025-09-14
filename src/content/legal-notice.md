@@ -1,4 +1,4 @@
-# Impressum
+# Legal Notice
 
 <div class="spacer-lg"></div>
 
