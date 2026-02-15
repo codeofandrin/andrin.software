@@ -1,8 +1,9 @@
 import type { NextConfig } from "next"
+import type { Configuration } from "webpack"
 
 const nextConfig: NextConfig = {
-    webpack(config: NextConfig) {
-        config.module.rules.push(
+    webpack(config: Configuration) {
+        config.module?.rules?.push(
             {
                 test: /\.svg$/i,
                 use: ["@svgr/webpack"]

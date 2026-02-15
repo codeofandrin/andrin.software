@@ -3,7 +3,6 @@ import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
 
 import { EMail } from "@/lib/constants"
-import SVGArrowLink from "@/assets/icons/ArrowLink.svg"
 
 interface MarkdownContentPropsType {
   children: string
@@ -31,7 +30,7 @@ export default function MarkdownContent({ children }: MarkdownContentPropsType) 
                 href={href}
                 target="_blank"
                 className="inline-flex items-start text-blue-400 transition-colors hover:text-blue-300">
-                {content} <SVGArrowLink className="ml-1 h-4 w-4" />
+                {content}
               </Link>
             )
           }
