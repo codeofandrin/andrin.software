@@ -10,10 +10,37 @@
     @apply bg-white font-medium text-neutral-900;
     font-family: "Darker Grotesque", Arial, Helvetica, sans-serif;
 }
-/* 
+
 @theme inline {
+    --color-primary-120: oklch(22.24% 0.083 267.97deg);
+    --color-primary-110: oklch(23.84% 0.0908 267.99deg);
+    --color-primary-100: oklch(25.37% 0.0987 267.4deg);
+    --color-primary-90: oklch(33.59% 0.0843 269.78deg);
+    --color-primary-80: oklch(41.6% 0.0734 271.99deg);
+    --color-primary-70: oklch(49.58% 0.0606 272.38deg);
+    --color-primary-60: oklch(57.38% 0.0506 272.49deg);
+    --color-primary-50: oklch(65% 0.0396 273.4deg);
+    --color-primary-40: oklch(72.15% 0.0309 275deg);
+    --color-primary-30: oklch(79.39% 0.0229 274.69deg);
+    --color-primary-20: oklch(86.44% 0.0141 272.71deg);
+    --color-primary-10: oklch(93.2% 0.0081 278.74deg);
+    --color-secondary-120: oklch(71.05% 0.1344 90.14deg);
+    --color-secondary-110: oklch(77.39% 0.1468 89.78deg);
+    --color-secondary-100: oklch(83.79% 0.1594 90.02deg);
+    --color-secondary-90: oklch(85.2% 0.1516 91.26deg);
+    --color-secondary-80: oklch(86.75% 0.1418 91.83deg);
+    --color-secondary-70: oklch(88.25% 0.1285 92.52deg);
+    --color-secondary-60: oklch(89.81% 0.1131 93.03deg);
+    --color-secondary-50: oklch(91.51% 0.0962 92.82deg);
+    --color-secondary-40: oklch(92.94% 0.0782 92.33deg);
+    --color-secondary-30: oklch(94.63% 0.059 92.47deg);
+    --color-secondary-20: oklch(96.37% 0.0391 92.71deg);
+    --color-secondary-10: oklch(98.19% 0.0205 91.54deg);
+
     --text-xxs: 0.625rem;
-} */
+    --spacing-body-mobile: 1.563rem; /* 25px */
+    --spacing-header-mobile: 5rem; /* 80px */
+}
 
 /* Markdown content */
 
@@ -55,4 +82,19 @@
 
 .content strong {
     @apply font-semibold;
+}
+
+.section-border-b-dashed-mobile {
+    border-bottom: 1.5px solid transparent;
+    border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
+}
+
+.section-border-t-dashed-mobile {
+    border-top: 1.5px solid transparent;
+    border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
+}
+
+.section-border-b-dashed-desktop {
+    border-bottom: 2px solid transparent;
+    border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
 }
