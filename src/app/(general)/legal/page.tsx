@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 
-import MarkdownContent from "@/components/ui/markdown"
+import MarkdownContent from "@/components/ui/MarkdownContent"
 import MdLegalNotice from "@/content/legal-notice.md"
 
 export const metadata: Metadata = {
