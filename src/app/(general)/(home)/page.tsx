@@ -1,3 +1,5 @@
+import Hero from "@/components/home/Hero"
+
 export const metadata = {
   title: "andrin.software: Individuelle Software für Schweizer KMUs",
   description:
@@ -11,21 +13,7 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="w-full max-w-screen-lg">
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
+      <Hero />
     </div>
   )
 }
