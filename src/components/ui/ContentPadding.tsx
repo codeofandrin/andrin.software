@@ -1,5 +1,5 @@
 interface ContentPaddingProps extends React.HTMLProps<HTMLDivElement> {
-  children: React.ReactElement | React.ReactElement[]
+  children: React.ReactNode | React.ReactNode[]
   className?: string
 }
 

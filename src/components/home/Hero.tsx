@@ -1,16 +1,17 @@
 import Link from "next/link"
 
 import ContentPadding from "../ui/ContentPadding"
+import Highlight from "../ui/Highlight"
 import SVGArrowDown from "@/assets/svg/arrow_down.svg"
 import SVGHeroIllustration from "@/assets/svg/hero_illustration.svg"
 
 function HeroHeader() {
   return (
-    <h1 className="text-hero-main text-primary-100 leading-12 font-bold">
+    <h1 className="text-hero-main text-primary-100 leading-11 font-bold">
       <span className="text-hero-serif font-['DM-Serif'] font-bold italic">Individuelle</span> Software
       Lösungen{" "}
-      <div className="bg-primary-100 mt-3 w-fit px-2 pb-2 text-white">
-        <p className="leading-11">für Ihr KMU</p>
+      <div className="pt-2 leading-14">
+        <Highlight px="px-2">für Ihr KMU</Highlight>
       </div>
     </h1>
   )

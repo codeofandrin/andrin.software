@@ -38,8 +38,10 @@
     --color-secondary-10: oklch(98.19% 0.0205 91.54deg);
 
     --text-xxs: 0.625rem;
-    --text-hero-main: 2.6rem;
+    --text-hero-main: 2.7rem;
     --text-hero-serif: 2.4rem;
+    --text-section-subtitle: 2.3rem;
+    --text-accordion-item: 1.6rem;
 
     --spacing-body-mobile: 1.563rem; /* 25px */
     --spacing-header-mobile: 5rem; /* 80px */
