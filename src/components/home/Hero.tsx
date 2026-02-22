@@ -37,7 +37,7 @@ function HeroContactLink() {
 export default function Hero() {
   return (
     <div className="section-border-b-dashed-mobile pb-52">
-      <div className="magicpattern">
+      <div className="dot-pattern">
         <ContentPadding className="grid gap-y-8 pt-20">
           <HeroHeader />
           <HeroSubline />
