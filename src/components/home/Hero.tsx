@@ -1,7 +1,8 @@
 import Link from "next/link"
 
-import SVGArrowDown from "@/assets/svg/arrow_down.svg"
 import ContentPadding from "../ui/ContentPadding"
+import SVGArrowDown from "@/assets/svg/arrow_down.svg"
+import SVGHeroIllustration from "@/assets/svg/hero_illustration.svg"
 
 function HeroHeader() {
   return (
@@ -35,12 +36,17 @@ function HeroContactLink() {
 
 export default function Hero() {
   return (
-    <div className="magicpattern">
-      <ContentPadding className="grid gap-y-8 pt-20">
-        <HeroHeader />
-        <HeroSubline />
-        <HeroContactLink />
-      </ContentPadding>
+    <div className="section-border-b-dashed-mobile pb-52">
+      <div className="magicpattern">
+        <ContentPadding className="grid gap-y-8 pt-20">
+          <HeroHeader />
+          <HeroSubline />
+          <HeroContactLink />
+        </ContentPadding>
+      </div>
+      <div className="mt-20 flex justify-center">
+        <SVGHeroIllustration className="max-w-3/4" />
+      </div>
     </div>
   )
 }
