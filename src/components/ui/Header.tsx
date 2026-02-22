@@ -22,6 +22,14 @@ export default function Header() {
     document.body.style.overflow = isMenuOpen ? "hidden" : ""
   }, [isMenuOpen])
 
+  function handleMenuToggle() {
+    if (isMenuOpen) {
+      setMenuOpen(false)
+    } else {
+      setMenuOpen(true)
+    }
+  }
+
   return (
     <>
       <header className="h-header-mobile section-border-b-dashed-mobile fixed top-0 right-0 left-0 z-[1000] w-full bg-white">
@@ -29,15 +37,13 @@ export default function Header() {
           <Link className="h-fit w-fit" href={"/"} onClick={() => setMenuOpen(false)}>
             <SVGLogoLarge className="w-[150px]" />
           </Link>
-          {isMenuOpen ? (
-            <button className="hover:cursor-pointer" onClick={() => setMenuOpen(false)}>
+          <button className="hover:cursor-pointer" onClick={handleMenuToggle}>
+            {isMenuOpen ? (
               <SVGXMark className="w-[40px] stroke-neutral-900 stroke-[1.5]" />
-            </button>
-          ) : (
-            <button className="hover:cursor-pointer" onClick={() => setMenuOpen(true)}>
+            ) : (
               <SVGMenu className="w-[40px] stroke-neutral-900 stroke-[1.5]" />
-            </button>
-          )}
+            )}
+          </button>
         </div>
       </header>
       {isMenuOpen && (
