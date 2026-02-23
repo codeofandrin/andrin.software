@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "rm -r .next | next dev --webpack",
-    "build": "rm -r .next | next build",
+    "build": "rm -r .next | next build --webpack",
     "start": "next start",
     "format": "prettier --write --list-different .",
     "typecheck": "tsc --noEmit --noUnusedLocals --noUnusedParameters --composite false",
