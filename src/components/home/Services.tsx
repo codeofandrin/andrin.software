@@ -5,12 +5,12 @@ import { useState } from "react"
 import SectionContainer from "./SectionContainer"
 import ContentPadding from "../ui/ContentPadding"
 import SectionTitle from "./SectionTitle"
-import SVGPlus from "@/assets/svg/plus.svg"
-import SVGMinus from "@/assets/svg/minus.svg"
-import SVGWebIllustration from "@/assets/svg/web_illustration.svg"
-import SVGDesktopIllustration from "@/assets/svg/desktop_illustration.svg"
-import SVGBackendIllustration from "@/assets/svg/backend_illustration.svg"
-import SVGAutomationIllustration from "@/assets/svg/automation_illustration.svg"
+import SVGPlus from "@/assets/svg/icons/plus.svg"
+import SVGMinus from "@/assets/svg/icons/minus.svg"
+import SVGWebIllustration from "@/assets/svg/illustrations/web_illustration.svg"
+import SVGDesktopIllustration from "@/assets/svg/illustrations/desktop_illustration.svg"
+import SVGBackendIllustration from "@/assets/svg/illustrations/backend_illustration.svg"
+import SVGAutomationIllustration from "@/assets/svg/illustrations/automation_illustration.svg"
 
 const ITEMS = [
   {

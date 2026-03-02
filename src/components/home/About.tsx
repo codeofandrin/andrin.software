@@ -5,12 +5,12 @@ import { Socials } from "@/lib/constants"
 import SectionContainer from "./SectionContainer"
 import ContentPadding from "../ui/ContentPadding"
 import SectionTitle from "./SectionTitle"
-import SVGLinkedin from "@/assets/svg/linkedin.svg"
-import SVGNextjs from "@/assets/svg/nextjs.svg"
-import SVGReact from "@/assets/svg/react.svg"
-import SVGTypeScript from "@/assets/svg/typescript.svg"
-import SVGPython from "@/assets/svg/python.svg"
-import SVGNodejs from "@/assets/svg/nodejs.svg"
+import SVGLinkedin from "@/assets/svg/socials/linkedin.svg"
+import SVGNextjs from "@/assets/svg/tech/nextjs.svg"
+import SVGReact from "@/assets/svg/tech/react.svg"
+import SVGTypeScript from "@/assets/svg/tech/typescript.svg"
+import SVGPython from "@/assets/svg/tech/python.svg"
+import SVGNodejs from "@/assets/svg/tech/nodejs.svg"
 
 const TECH_ITEMS = [
   {

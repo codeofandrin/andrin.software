@@ -4,7 +4,7 @@ import Link from "next/link"
 import SectionContainer from "./SectionContainer"
 import ContentPadding from "../ui/ContentPadding"
 import SectionTitle from "./SectionTitle"
-import SVGLink from "@/assets/svg/link.svg"
+import SVGLink from "@/assets/svg/icons/link.svg"
 
 const ITEMS = [
   {

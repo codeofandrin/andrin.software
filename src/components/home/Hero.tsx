@@ -2,8 +2,8 @@ import Link from "next/link"
 
 import ContentPadding from "../ui/ContentPadding"
 import Highlight from "../ui/Highlight"
-import SVGArrowDown from "@/assets/svg/arrow_down.svg"
-import SVGHeroIllustration from "@/assets/svg/hero_illustration.svg"
+import SVGArrowDown from "@/assets/svg/icons/arrow_down.svg"
+import SVGHeroIllustration from "@/assets/svg/illustrations/hero_illustration.svg"
 
 function HeroHeader() {
   return (

@@ -4,9 +4,9 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 
 import { EMail } from "@/lib/constants"
-import SVGLogoLarge from "@/assets/svg/logo_large.svg"
-import SVGMenu from "@/assets/svg/menu.svg"
-import SVGXMark from "@/assets/svg/x_mark.svg"
+import SVGLogoLarge from "@/assets/svg/brand/logo_large.svg"
+import SVGMenu from "@/assets/svg/icons/menu.svg"
+import SVGXMark from "@/assets/svg/icons/x_mark.svg"
 
 const MENU_ITEMS = [
   { name: "Leistungen", link: "/#leistungen" },
