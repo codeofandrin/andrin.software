@@ -103,11 +103,13 @@ function AboutTechnicalFocus() {
 export default function About() {
   return (
     <SectionContainer colorTransition={true} bgColor="bg-primary-100" theme="dark">
-      <ContentPadding className="grid gap-16 text-white">
+      <ContentPadding className="text-white">
         <SectionTitle title="Über mich" subTitle="Wer hinter andrin.software steht" theme="dark" />
-        <AboutIntroduction />
-        <AboutPortrait />
-        <AboutTechnicalFocus />
+        <div className="grid gap-16">
+          <AboutIntroduction />
+          <AboutPortrait />
+          <AboutTechnicalFocus />
+        </div>
       </ContentPadding>
     </SectionContainer>
   )
