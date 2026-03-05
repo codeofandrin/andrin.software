@@ -4,16 +4,10 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 
 import { EMail } from "@/lib/constants"
+import { MENU_ITEMS } from "@/lib/constants"
 import SVGLogoLarge from "@/assets/svg/brand/logo_large.svg"
 import SVGMenu from "@/assets/svg/icons/menu.svg"
 import SVGXMark from "@/assets/svg/icons/x_mark.svg"
-
-const MENU_ITEMS = [
-  { name: "Leistungen", link: "/#leistungen" },
-  { name: "Projekte", link: "/#projekte" },
-  { name: "Über mich", link: "/#ueber-mich" },
-  { name: "Kontakt", link: "/#kontakt" }
-]
 
 interface MobileMenuProps {
   setMenuOpen: (isOpen: boolean) => void
