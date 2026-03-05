@@ -15,6 +15,42 @@ const MENU_ITEMS = [
   { name: "Kontakt", link: "/#kontakt" }
 ]
 
+interface MobileMenuProps {
+  setMenuOpen: (isOpen: boolean) => void
+}
+
+function MobileMenu({ setMenuOpen }: MobileMenuProps) {
+  return (
+    <div className="max-h-screen overscroll-none">
+      <div className="top-header-mobile fixed right-0 bottom-0 left-0 z-[1000] w-full bg-white">
+        {/* Menu Items */}
+        <div className="px-body-mobile grid gap-10 pt-12">
+          {MENU_ITEMS.map(({ name, link }) => {
+            return (
+              <div key={`menu-item-${name}`}>
+                <Link
+                  href={link}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-primary-100 hover:text-primary-60 py-2 text-3xl font-bold transition-colors duration-300">
+                  {name}
+                </Link>
+              </div>
+            )
+          })}
+        </div>
+        {/* Footer */}
+        <div className="px-body-mobile section-border-t-dashed-mobile fixed bottom-0 w-full py-5">
+          <Link
+            href={`mailto:${EMail.general}`}
+            className="hover:text-primary-100 text-xl text-neutral-500 transition-colors duration-300">
+            {EMail.general}
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false)
 
@@ -45,36 +81,8 @@ export default function Header() {
             )}
           </button>
         </div>
+        {isMenuOpen && <MobileMenu setMenuOpen={setMenuOpen} />}
       </header>
-      {isMenuOpen && (
-        <div className="max-h-screen overscroll-none">
-          <div className="top-header-mobile fixed right-0 bottom-0 left-0 z-[1000] w-full bg-white">
-            {/* Menu Items */}
-            <div className="px-body-mobile grid gap-10 pt-12">
-              {MENU_ITEMS.map(({ name, link }) => {
-                return (
-                  <div key={`menu-item-${name}`}>
-                    <Link
-                      href={link}
-                      onClick={() => setMenuOpen(false)}
-                      className="text-primary-100 hover:text-primary-60 py-2 text-3xl font-bold transition-colors duration-300">
-                      {name}
-                    </Link>
-                  </div>
-                )
-              })}
-            </div>
-            {/* Footer */}
-            <div className="px-body-mobile section-border-t-dashed-mobile fixed bottom-0 w-full py-5">
-              <Link
-                href={`mailto:${EMail.general}`}
-                className="hover:text-primary-100 text-xl text-neutral-500 transition-colors duration-300">
-                {EMail.general}
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   )
 }
