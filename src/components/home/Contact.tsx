@@ -90,13 +90,6 @@ function ContactForm() {
         />
         <div>
           <ContactFormSubmitButton />
-          <p className="mt-2 w-full text-base text-neutral-400 decoration-1">
-            Es gelten die{" "}
-            <Link href="/datenschutz" className="underline">
-              Datenschutzrichtlinien
-            </Link>
-            .
-          </p>
         </div>
       </form>
     </ContentPadding>
