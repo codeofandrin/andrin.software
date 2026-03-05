@@ -21,7 +21,9 @@ function ContactMail() {
   return (
     <div className="text-primary-100 mt-6 flex items-center">
       <SVGEnvelope className="h-5 w-5 stroke-[1.5px]" />
-      <p className="ml-2 pb-1">{EMail.general}</p>
+      <Link href={`mailto:${EMail.general}`} className="ml-2 pb-1">
+        {EMail.general}
+      </Link>
     </div>
   )
 }
