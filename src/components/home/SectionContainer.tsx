@@ -4,6 +4,7 @@ interface SectionContainerProps extends React.HTMLProps<HTMLDivElement> {
   colorTransition?: boolean
   theme?: string
   bgColor?: string
+  noBottomPadding?: boolean
 }
 
 export default function SectionContainer({
@@ -12,9 +13,10 @@ export default function SectionContainer({
   colorTransition = false,
   theme = "light",
   bgColor = "bg-inherit",
+  noBottomPadding = false,
   ...props
 }: SectionContainerProps) {
-  let bottomPadding = colorTransition ? "pb-36" : "pb-52"
+  let bottomPadding = noBottomPadding ? null : colorTransition ? "pb-36" : "pb-52"
   let border
   switch (theme) {
     case "light":

@@ -4,9 +4,15 @@ interface SectionTitleProps {
   title: string
   subTitle: string
   theme?: string
+  smallPadding?: boolean
 }
 
-export default function SectionTitle({ title, subTitle, theme = "light" }: SectionTitleProps) {
+export default function SectionTitle({
+  title,
+  subTitle,
+  theme = "light",
+  smallPadding = false
+}: SectionTitleProps) {
   let titleTextColor
   switch (theme) {
     case "light":
@@ -19,7 +25,7 @@ export default function SectionTitle({ title, subTitle, theme = "light" }: Secti
   }
 
   return (
-    <div className="pb-14 font-bold">
+    <div className={`${smallPadding ? "pb-6" : "pb-14"} font-bold`}>
       <h1 className={`${titleTextColor} font-['DM-Serif'] text-xl italic`}>{title}</h1>
       <h2 className={`text-section-subtitle mt-1 leading-[1.3] font-bold`}>
         <Highlight px="px-2" theme={theme}>

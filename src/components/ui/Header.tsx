@@ -48,7 +48,7 @@ export default function Header() {
       </header>
       {isMenuOpen && (
         <div className="max-h-screen overscroll-none">
-          <div className="top-header-mobile fixed right-0 bottom-0 left-0 w-full bg-white">
+          <div className="top-header-mobile fixed right-0 bottom-0 left-0 z-[1000] w-full bg-white">
             {/* Menu Items */}
             <div className="px-body-mobile grid gap-10 pt-12">
               {MENU_ITEMS.map(({ name, link }) => {

@@ -37,17 +37,16 @@ function HeroContactLink() {
 
 export default function Hero() {
   return (
-    <div className="section-border-b-dashed-mobile pb-52">
-      <div className="dot-pattern">
-        <ContentPadding className="grid gap-y-8 pt-20">
-          <HeroHeader />
-          <HeroSubline />
-          <HeroContactLink />
-        </ContentPadding>
-      </div>
+    <div className="section-border-b-dashed-mobile relative pb-52">
+      <ContentPadding className="grid gap-y-8 pt-20">
+        <HeroHeader />
+        <HeroSubline />
+        <HeroContactLink />
+      </ContentPadding>
       <div className="mt-20 flex justify-center">
         <SVGHeroIllustration className="max-w-3/4" />
       </div>
+      <div className="dot-pattern-hero absolute top-0 -z-[99]" />
     </div>
   )
 }
