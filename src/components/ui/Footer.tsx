@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { MENU_ITEMS } from "@/lib/constants"
 import ContentPadding from "./ContentPadding"
-import SVGLogoSmall from "@/assets/svg/brand/Logo_small.svg"
+import SVGLogoSmall from "@/assets/svg/brand/logo_small.svg"
 
 function FooterNavigation() {
   return (
