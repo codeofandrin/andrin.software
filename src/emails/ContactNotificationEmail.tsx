@@ -1,3 +1,8 @@
+import { Body, Head, Html, Preview, Tailwind, Font } from "@react-email/components"
+import Header from "@/components/emails/Header"
+import Content from "@/components/emails/contact-notification/Content"
+import Footer from "@/components/emails/Footer"
+
 interface ContactNotificationEmailProps {
   name: string
   email: string
@@ -6,11 +11,25 @@ interface ContactNotificationEmailProps {
 
 export default function ContactNotificationEmail({ name, email, message }: ContactNotificationEmailProps) {
   return (
-    <div>
-      <p>This is the ContactNotificationEmail component</p>
-      <p>Name: {name}</p>
-      <p>E-Mail: {email}</p>
-      <p>Nachricht: {message}</p>
-    </div>
+    <Html>
+      <Head>
+        <Font
+          fontFamily="Darker Grotesque"
+          fallbackFontFamily="Arial"
+          webFont={{
+            url: "https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap",
+            format: "woff2"
+          }}
+        />
+      </Head>
+      <Preview>Danke für Ihre Kontaktanfrage - andrin.software</Preview>
+      <Tailwind>
+        <Body>
+          <Header />
+          <Content name={name} email={email} message={message} />
+          <Footer />
+        </Body>
+      </Tailwind>
+    </Html>
   )
 }

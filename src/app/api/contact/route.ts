@@ -74,6 +74,7 @@ async function sendNotificationEmail(name: string, email: string, message: strin
 async function sendConfirmationEmail(name: string, email: string, message: string) {
     const { data, error } = await resend.emails.send({
         from: `andrin.software <${EMail.general}>`,
+        replyTo: EMail.general,
         to: [email],
         subject: `Danke für Ihre Kontaktanfrage`,
         react: ContactConfirmationEmail({ name, email, message })
