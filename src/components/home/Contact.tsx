@@ -231,7 +231,13 @@ export default function Contact() {
   return (
     <SectionContainer className="relative" noBottomPadding>
       <ContentPadding>
-        <SectionTitle title="Kontakt" subTitle="Gehen wir Ihr Projekt an" theme="light" smallPadding />
+        <SectionTitle
+          id="kontakt"
+          title="Kontakt"
+          subTitle="Gehen wir Ihr Projekt an"
+          theme="light"
+          smallPadding
+        />
         <div className="text-xl">
           <ContactDescription />
           <ContactMail />

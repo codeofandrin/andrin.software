@@ -84,7 +84,7 @@ export default function Services() {
   return (
     <SectionContainer>
       <ContentPadding>
-        <SectionTitle title="Leistungen" subTitle="Wobei ich Sie unterstützen kann" />
+        <SectionTitle title="Leistungen" subTitle="Wobei ich Sie unterstützen kann" id="leistungen" />
         <div className="grid gap-5">
           {ITEMS.map(({ title, description, svg }) => (
             <AccordionItem

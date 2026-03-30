@@ -104,7 +104,12 @@ export default function About() {
   return (
     <SectionContainer colorTransition={true} bgColor="bg-primary-100" theme="dark">
       <ContentPadding className="text-white">
-        <SectionTitle title="Über mich" subTitle="Wer hinter andrin.software steht" theme="dark" />
+        <SectionTitle
+          id="ueber-mich"
+          title="Über mich"
+          subTitle="Wer hinter andrin.software steht"
+          theme="dark"
+        />
         <div className="grid gap-16">
           <AboutIntroduction />
           <AboutPortrait />

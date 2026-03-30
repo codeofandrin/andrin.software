@@ -92,7 +92,7 @@ export default function Projects() {
   return (
     <SectionContainer>
       <ContentPadding>
-        <SectionTitle title="Projekte" subTitle="Arbeiten aus der Praxis" />
+        <SectionTitle id="projekte" title="Projekte" subTitle="Arbeiten aus der Praxis" />
         <div className="grid gap-5">
           {ITEMS.map(({ type, title, description, link, imagePath, imageTransforms }) => (
             <Card
