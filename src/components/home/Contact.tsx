@@ -1,12 +1,12 @@
 "use client"
 
-import Link from "next/link"
 import { useState, useEffect } from "react"
 
 import { EMail } from "@/lib/constants"
-import ContentPadding from "../ui/ContentPadding"
+import ContentPadding from "@/components/ui/ContentPadding"
 import SectionContainer from "./SectionContainer"
 import SectionTitle from "./SectionTitle"
+import HyperLink from "@/components/ui/HyperLink"
 import SVGEnvelope from "@/assets/svg/icons/envelope.svg"
 import SVGPaperAirplane from "@/assets/svg/icons/paper_airplane.svg"
 import SVGContactIllustration from "@/assets/svg/illustrations/contact_illustration.svg"
@@ -73,12 +73,12 @@ function ContactDescription() {
 
 function ContactMail() {
   return (
-    <div className="text-primary-100 mt-6 flex items-center">
-      <SVGEnvelope className="h-5 w-5 stroke-[1.5px]" />
-      <Link href={`mailto:${EMail.general}`} className="ml-2 pb-1">
-        {EMail.general}
-      </Link>
-    </div>
+    <HyperLink
+      href={`mailto:${EMail.general}`}
+      className="mt-6"
+      icon={<SVGEnvelope className="h-5 w-5 stroke-[1.5px]" />}>
+      {EMail.general}
+    </HyperLink>
   )
 }
 
@@ -229,7 +229,7 @@ function ContactForm() {
 
 export default function Contact() {
   return (
-    <SectionContainer className="relative" noBottomPadding>
+    <SectionContainer className="relative" noBottomPadding noBorder>
       <ContentPadding>
         <SectionTitle
           id="kontakt"

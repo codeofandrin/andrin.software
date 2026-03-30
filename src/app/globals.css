@@ -50,27 +50,23 @@
 /* Markdown content */
 
 .content h1 {
-    @apply pb-6 text-3xl font-[550] tracking-tight sm:text-4xl sm:font-semibold;
+    @apply text-primary-100 pb-6 font-['DM-Serif'] text-4xl font-bold italic sm:text-4xl sm:font-semibold;
 }
 
 .content h2 {
-    @apply pb-3 text-2xl font-medium sm:text-3xl;
+    @apply text-primary-100 pb-3 text-3xl font-bold sm:text-3xl;
 }
 
 .content h3 {
-    @apply pb-3 text-lg font-medium sm:text-xl;
-}
-
-.content h4 {
-    @apply mt-6 pb-2 text-base font-medium sm:text-lg;
+    @apply pb-3 text-2xl font-bold text-neutral-900 sm:text-xl;
 }
 
 .content p {
-    @apply leading-normal text-neutral-500 dark:text-neutral-400;
+    @apply text-xl text-neutral-700;
 }
 
 .content ul {
-    @apply my-3 ml-3 list-inside list-disc leading-normal text-neutral-500 dark:text-neutral-400;
+    @apply my-3 ml-3 list-inside list-disc text-neutral-500 dark:text-neutral-400;
 }
 
 .content .spacer {

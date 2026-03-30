@@ -1,4 +1,4 @@
-import Link from "next/link"
+import HyperLink from "./HyperLink"
 import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
 
@@ -26,12 +26,9 @@ export default function MarkdownContent({ children }: MarkdownContentPropsType) 
             }
 
             return (
-              <Link
-                href={href}
-                target="_blank"
-                className="inline-flex items-start text-blue-400 transition-colors hover:text-blue-300">
+              <HyperLink href={href} target="_blank">
                 {content}
-              </Link>
+              </HyperLink>
             )
           }
         }}>

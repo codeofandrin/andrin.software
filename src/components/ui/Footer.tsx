@@ -36,7 +36,7 @@ function FooterLegal() {
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="section-border-t-dashed-mobile">
       <ContentPadding>
         <div className="py-20">
           <Link className="h-fit w-fit" href={"/"}>
