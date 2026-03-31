@@ -2,7 +2,7 @@
 
 <div class="spacer-lg"></div>
 
-### Verantwortliche Stelle
+### Verantwortliche Instanz
 
 Andrin Schaller \
 Fahrweidstrasse 83 \
