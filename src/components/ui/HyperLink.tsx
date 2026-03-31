@@ -19,10 +19,17 @@ export default function HyperLink({
   return (
     <Link
       href={href}
-      className={`text-primary-100 hover:text-primary-60 inline-flex items-center transition-colors duration-300 ${className ?? ""}`}
+      className={`group text-primary-100 inline-flex items-center ${className ?? ""}`}
       {...props}>
       {icon && <span className={`mr-2 flex-shrink-0 ${iconClassName ?? ""}`}>{icon}</span>}
-      <span className={`${icon && "pb-1.5"}`}>{children}</span>
+
+      <span
+        className={`relative ${icon ? "pb-1.5" : ""} transition-colors duration-300 group-hover:text-white`}>
+        <span>{children}</span>
+        <span
+          className={`absolute left-1/2 -translate-x-1/2 ${icon ? "bottom-2" : "bottom-0.5"} bg-primary-100 h-[1px] w-full transition-all duration-300 group-hover:w-[calc(100%+4px)] ${icon ? "group-hover:h-[60%]" : "group-hover:h-[75%]"} -z-10`}
+        />
+      </span>
     </Link>
   )
 }
