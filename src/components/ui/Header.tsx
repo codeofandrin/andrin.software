@@ -69,20 +69,49 @@ export default function Header() {
 
   return (
     <>
-      <header className="h-header-mobile section-border-b-dashed-mobile fixed top-0 right-0 left-0 z-[1000] w-full bg-white">
-        <div className="px-body-mobile flex items-center justify-between py-5">
-          <Link className="h-fit w-fit" href={"/"} onClick={() => setMenuOpen(false)}>
-            <SVGLogoLarge className="w-[150px]" />
-          </Link>
-          <button className="hover:cursor-pointer" onClick={handleMenuToggle}>
-            {isMenuOpen ? (
-              <SVGXMark className="w-[40px] stroke-neutral-900 stroke-[1.5]" />
-            ) : (
-              <SVGMenu className="w-[40px] stroke-neutral-900 stroke-[1.5]" />
-            )}
-          </button>
+      <header className="h-header-mobile sm:h-header-desktop section-border-b-dashed fixed top-0 right-0 left-0 z-[1000] w-full bg-white">
+        <div className="flex h-full w-full justify-center">
+          <div className="section-border-x-dashed sm:mx-body-desktop flex h-full w-full items-center justify-center sm:max-w-7xl">
+            <div className="px-body-mobile flex w-full items-center justify-between py-5 sm:px-5 sm:py-0">
+              <Link className="h-fit w-fit" href={"/"} onClick={() => setMenuOpen(false)}>
+                <SVGLogoLarge className="w-[150px] sm:w-[220px]" />
+              </Link>
+              {/* Desktop Navigation */}
+              <div className="hidden gap-20 lg:flex">
+                {MENU_ITEMS.map(({ name, link }) => {
+                  return (
+                    <div key={`menu-item-${name}`}>
+                      <Link
+                        href={link}
+                        onClick={() => {
+                          setMenuOpen(false)
+                          // if same link, scroll manually to right position
+                          const hash = link.split("#")[1]
+                          if (hash && window.location.hash === `#${hash}`) {
+                            document
+                              .getElementById(hash)
+                              ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                          }
+                        }}
+                        className="text-primary-100 hover:text-primary-60 text-2xl font-bold transition-colors duration-300">
+                        {name}
+                      </Link>
+                    </div>
+                  )
+                })}
+              </div>
+              {/* Mobile Menu Button */}
+              <button className="hover:cursor-pointer lg:hidden" onClick={handleMenuToggle}>
+                {isMenuOpen ? (
+                  <SVGXMark className="w-[40px] stroke-neutral-900 stroke-[1.5]" />
+                ) : (
+                  <SVGMenu className="w-[40px] stroke-neutral-900 stroke-[1.5]" />
+                )}
+              </button>
+            </div>
+          </div>
+          {isMenuOpen && <MobileMenu setMenuOpen={setMenuOpen} />}
         </div>
-        {isMenuOpen && <MobileMenu setMenuOpen={setMenuOpen} />}
       </header>
     </>
   )

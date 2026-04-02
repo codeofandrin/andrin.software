@@ -44,7 +44,9 @@
     --text-accordion-item: 1.6rem;
 
     --spacing-body-mobile: 1.563rem; /* 25px */
+    --spacing-body-desktop: 2.188rem; /* 25px */
     --spacing-header-mobile: 5rem; /* 80px */
+    --spacing-header-desktop: 7rem;
 }
 
 /* Markdown content */
@@ -115,29 +117,63 @@
     content: counter(h2) "." counter(h3) "." counter(h4) ". ";
 }
 
-.section-border-b-dashed-mobile {
-    border-bottom: 1.5px solid transparent;
-    border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
+/* Dashed Border for Mobile (< sm) */
+@media (width < 40rem) {
+    .section-border-b-dashed {
+        border-bottom: 1.5px solid transparent;
+        border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
+    }
+
+    .section-border-b-dashed-dark {
+        border-bottom: 1.5px solid transparent;
+        border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.5) 0 10px, transparent 10px 20px) 1;
+    }
+
+    .section-border-t-dashed {
+        border-top: 1.5px solid transparent;
+        border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
+    }
+
+    .section-border-t-dashed-dark {
+        border-top: 1.5px solid transparent;
+        border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.5) 0 10px, transparent 10px 20px) 1;
+    }
 }
 
-.section-border-b-dashed-dark-mobile {
-    border-bottom: 1.5px solid transparent;
-    border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.5) 0 10px, transparent 10px 20px) 1;
-}
+/* Dashed Border for Desktop (>= sm) */
+@media (width >= 40rem) {
+    .section-border-b-dashed {
+        border-bottom: 2px solid transparent;
+        border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
+    }
 
-.section-border-t-dashed-mobile {
-    border-top: 1.5px solid transparent;
-    border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
-}
+    .section-border-b-dashed-dark {
+        border-bottom: 10px solid transparent;
+        border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.5) 0 10px, transparent 10px 20px) 1;
+    }
 
-.section-border-t-dashed-dark-mobile {
-    border-top: 1.5px solid transparent;
-    border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.5) 0 10px, transparent 10px 20px) 1;
-}
+    .section-border-t-dashed {
+        border-top: 2px solid transparent;
+        border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
+    }
 
-.section-border-b-dashed-desktop {
-    border-bottom: 2px solid transparent;
-    border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
+    .section-border-t-dashed-dark {
+        border-top: 2px solid transparent;
+        border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.5) 0 10px, transparent 10px 20px) 1;
+    }
+
+    .section-border-x-dashed {
+        border-right: 2px solid transparent;
+        border-left: 2px solid transparent;
+        border-image: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px)
+            1;
+    }
+
+    .section-border-x-dashed-dark {
+        border-right: 2px solid transparent;
+        border-left: 2px solid transparent;
+        border-image: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0 10px, transparent 10px 20px) 1;
+    }
 }
 
 .dot-pattern-hero {
