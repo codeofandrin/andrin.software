@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 
 import ContentPadding from "../ui/ContentPadding"
@@ -27,8 +29,17 @@ function HeroSubline() {
 }
 
 function HeroContactLink() {
+  const hash = "kontakt"
   return (
-    <Link href="/#kontakt" className="text-primary-40 flex items-center">
+    <Link
+      href={`/#${hash}`}
+      className="text-primary-40 flex items-center"
+      onClick={() => {
+        // if same link, scroll manually to right position
+        if (window.location.hash === `#${hash}`) {
+          document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" })
+        }
+      }}>
       <span className="pb-1 text-xl leading-none"> Kontakt</span>
       <SVGArrowDown className="ml-2 w-4 stroke-2" />
     </Link>
