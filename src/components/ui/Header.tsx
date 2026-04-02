@@ -24,7 +24,14 @@ function MobileMenu({ setMenuOpen }: MobileMenuProps) {
               <div key={`menu-item-${name}`}>
                 <Link
                   href={link}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    setMenuOpen(false)
+                    // if same link, scroll manually to right position
+                    const hash = link.split("#")[1]
+                    if (hash && window.location.hash === `#${hash}`) {
+                      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" })
+                    }
+                  }}
                   className="text-primary-100 hover:text-primary-60 py-2 text-3xl font-bold transition-colors duration-300">
                   {name}
                 </Link>
