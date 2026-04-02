@@ -30,7 +30,7 @@ const ITEMS = [
     description: "Interne Automatisierung zur Verwaltung von mehreren Radio Playlists auf Spotify",
     link: "https://github.com/codeofandrin/srfvirus-spotify",
     imagePath: "/images/music_playlist_showcase.png",
-    imageTransforms: "scale-125 translate-y-5 opacity-8"
+    imageTransforms: "scale-125 translate-y-5 opacity-10"
   }
 ]
 
