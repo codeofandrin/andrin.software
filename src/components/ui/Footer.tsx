@@ -39,9 +39,11 @@ export default function Footer() {
     <footer className="section-border-t-dashed-mobile">
       <ContentPadding>
         <div className="py-20">
-          <Link className="h-fit w-fit" href={"/"}>
-            <SVGLogoSmall className="w-[70px]" />
-          </Link>
+          <div className="h-fit w-fit">
+            <Link href={"/"}>
+              <SVGLogoSmall className="w-[70px]" />
+            </Link>
+          </div>
           <FooterNavigation />
         </div>
         <FooterLegal />
