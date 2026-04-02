@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function LegalNotice() {
   return (
-    <div className="mt-header-mobile w-full max-w-screen-lg">
+    <div className="mt-header-mobile scroll-mt-header-mobile w-full max-w-screen-lg">
       <div className="px-body-mobile py-20">
         <MarkdownContent>{MdLegalNotice}</MarkdownContent>
       </div>

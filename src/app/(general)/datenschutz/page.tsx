@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <div className="mt-header-mobile w-full max-w-screen-lg">
+    <div className="mt-header-mobile scroll-mt-header-mobile w-full max-w-screen-lg">
       <div className="px-body-mobile content-privacy py-20">
         <MarkdownContent>{MdPrivacy}</MarkdownContent>
       </div>

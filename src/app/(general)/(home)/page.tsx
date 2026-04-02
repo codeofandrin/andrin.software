@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="w-full max-w-screen-lg">
+    <div className="scroll-mt-header-mobile w-full max-w-screen-lg">
       <Hero />
       <Services />
       <Projects />
