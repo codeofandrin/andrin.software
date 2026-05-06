@@ -7,7 +7,7 @@ export class Socials {
 }
 
 export class Routes {
-    static self = "https://andrin.software"
+    static self = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://andrin.software"
     static emailResources = `${Routes.self}/emails`
 }
 
