@@ -100,8 +100,9 @@ function DesktopServices({
               <button
                 key={title}
                 onClick={() => handleSelect(title)}
-                className={`cursor-pointer pb-3 text-center text-xl font-semibold transition-colors duration-300 ${isActive ? "text-primary-100" : "text-primary-40 hover:text-primary-100"
-                  }`}>
+                className={`cursor-pointer pb-3 text-center text-xl font-semibold transition-colors duration-300 ${
+                  isActive ? "text-primary-100" : "text-primary-40 hover:text-primary-100"
+                }`}>
                 {title}
               </button>
             )
@@ -121,8 +122,9 @@ function DesktopServices({
       <div className="min-h-72">
         <div
           key={animKey}
-          className={`flex items-center gap-32 px-5 ${direction === "right" ? "animate-slide-in-from-right" : "animate-slide-in-from-left"
-            }`}>
+          className={`flex items-center gap-32 px-5 ${
+            direction === "right" ? "animate-slide-in-from-right" : "animate-slide-in-from-left"
+          }`}>
           <activeItem.svg className="w-72 shrink-0" />
           <div className="flex flex-col gap-4">
             {activeItem.description.split("\n").map((line, i) => (
@@ -138,13 +140,13 @@ function DesktopServices({
 }
 
 export default function Services() {
-  const [openItem, setOpenItem] = useState<string | null>(null)
+  const [openItem, setOpenItem] = useState<string>(ITEMS[0].title)
   const [activeTitle, setActiveTitle] = useState<string>(ITEMS[0].title)
 
   const activeItem = ITEMS.find((i) => i.title === activeTitle) ?? ITEMS[0]
 
   function handleToggleItem(title: string) {
-    setOpenItem((prev) => (prev === title ? null : title))
+    setOpenItem(title)
   }
 
   return (
