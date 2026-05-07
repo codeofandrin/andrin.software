@@ -24,11 +24,11 @@ export default function SectionContainer({
   if (!noBorder) {
     switch (theme) {
       case "light":
-        border = `section-border-b-dashed-mobile ${colorTransition && "section-border-t-dashed-mobile"}`
+        border = `section-border-b-dashed-mobile section-border-x-and-b-dashed-desktop ${colorTransition && "section-border-t-dashed-mobile section-border-x-and-t-dashed-desktop"}`
         break
 
       case "dark":
-        border = `section-border-b-dashed-dark-mobile ${colorTransition && "section-border-t-dashed-dark-mobile"}`
+        border = `section-border-b-dashed-dark-mobile section-border-x-and-b-dashed-dark-desktop ${colorTransition && "section-border-t-dashed-dark-mobile section-border-x-and-t-dashed-dark-desktop"}`
         break
     }
   }

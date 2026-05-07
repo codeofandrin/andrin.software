@@ -6,6 +6,7 @@ import ContentPadding from "../ui/ContentPadding"
 import Highlight from "../ui/Highlight"
 import SVGArrowDown from "@/assets/svg/icons/arrow_down.svg"
 import SVGHeroIllustration from "@/assets/svg/illustrations/hero_illustration.svg"
+import SectionContainer from "./SectionContainer"
 
 function HeroHeader() {
   return (
@@ -47,7 +48,7 @@ function HeroContactLink() {
 
 export default function Hero() {
   return (
-    <div className="section-border-b-dashed-mobile section-border-x-and-b-dashed-desktop relative pb-52 lg:flex lg:min-h-[calc(100svh-var(--spacing-header-desktop))] lg:items-center lg:pb-0">
+    <SectionContainer className="relative pb-52 lg:flex lg:min-h-[calc(100svh-var(--spacing-header-desktop))] lg:items-center lg:pb-0">
       <ContentPadding className="grid w-full gap-y-8 pt-20 lg:flex lg:items-center lg:gap-x-16 lg:py-12 lg:pt-0">
         <div className="my-auto flex flex-col gap-y-8 sm:gap-y-12">
           <HeroHeader />
@@ -61,6 +62,6 @@ export default function Hero() {
       <div className="absolute top-0 -z-[99] h-[800px] max-h-full w-full overflow-hidden">
         <div className="dot-pattern-hero" />
       </div>
-    </div>
+    </SectionContainer>
   )
 }
