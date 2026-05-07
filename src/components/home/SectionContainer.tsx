@@ -18,7 +18,7 @@ export default function SectionContainer({
   noBorder = false,
   ...props
 }: SectionContainerProps) {
-  let bottomPadding = noBottomPadding ? null : colorTransition ? "pb-36" : "pb-52"
+  let bottomPadding = noBottomPadding ? null : colorTransition ? "pb-36" : "pb-52 sm:pb-72"
   let border
 
   if (!noBorder) {
@@ -35,7 +35,7 @@ export default function SectionContainer({
 
   return (
     <div className={`${colorTransition && "py-16"} ${bgColor}`}>
-      <div className={`${border ?? ""} pt-16 ${bottomPadding} ${className}`} {...props}>
+      <div className={`${border ?? ""} pt-16 sm:pt-40 ${bottomPadding} ${className}`} {...props}>
         {children}
       </div>
     </div>

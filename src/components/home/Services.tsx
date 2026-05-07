@@ -59,7 +59,6 @@ function AccordionItem({ title, description, SvgComponent, handleToggle, isOpen 
         {isOpen ? <SVGMinus className="h-6 w-6 stroke-2" /> : <SVGPlus className="h-6 w-6 stroke-2" />}
         <h3 className="pb-1 text-2xl font-semibold">{title}</h3>
       </div>
-
       {isOpen && (
         <>
           <SvgComponent className="max-w-3/5" />
@@ -70,22 +69,91 @@ function AccordionItem({ title, description, SvgComponent, handleToggle, isOpen 
   )
 }
 
+function DesktopServices({
+  items,
+  activeItem,
+  onSelect
+}: {
+  items: typeof ITEMS
+  activeItem: (typeof ITEMS)[0]
+  onSelect: (title: string) => void
+}) {
+  const activeIndex = items.findIndex(({ title }) => title === activeItem.title)
+  const [direction, setDirection] = useState<"left" | "right">("right")
+  const [animKey, setAnimKey] = useState(0)
+
+  function handleSelect(title: string) {
+    const newIndex = items.findIndex((i) => i.title === title)
+    setDirection(newIndex > activeIndex ? "right" : "left")
+    setAnimKey((k) => k + 1)
+    onSelect(title)
+  }
+
+  return (
+    <div className="flex flex-col gap-28">
+      {/* Tabs */}
+      <div className="relative">
+        <div className="grid grid-cols-4">
+          {items.map(({ title }) => {
+            const isActive = activeItem.title === title
+            return (
+              <button
+                key={title}
+                onClick={() => handleSelect(title)}
+                className={`cursor-pointer pb-3 text-center text-xl font-semibold transition-colors duration-300 ${isActive ? "text-primary-100" : "text-primary-40 hover:text-primary-100"
+                  }`}>
+                {title}
+              </button>
+            )
+          })}
+        </div>
+        <div className="border-b border-gray-200" />
+        <div
+          className="bg-secondary-100 absolute bottom-0 h-0.5 transition-transform duration-500 ease-in-out"
+          style={{
+            width: `${100 / items.length}%`,
+            transform: `translateX(${activeIndex * 100}%)`
+          }}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="min-h-72">
+        <div
+          key={animKey}
+          className={`flex items-center gap-32 px-5 ${direction === "right" ? "animate-slide-in-from-right" : "animate-slide-in-from-left"
+            }`}>
+          <activeItem.svg className="w-72 shrink-0" />
+          <div className="flex flex-col gap-4">
+            {activeItem.description.split("\n").map((line, i) => (
+              <p key={i} className="text-2xl">
+                {line}
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Services() {
   const [openItem, setOpenItem] = useState<string | null>(null)
+  const [activeTitle, setActiveTitle] = useState<string>(ITEMS[0].title)
+
+  const activeItem = ITEMS.find((i) => i.title === activeTitle) ?? ITEMS[0]
 
   function handleToggleItem(title: string) {
-    if (openItem === title) {
-      setOpenItem(null)
-    } else {
-      setOpenItem(title)
-    }
+    setOpenItem((prev) => (prev === title ? null : title))
   }
 
   return (
     <SectionContainer>
       <ContentPadding>
         <SectionTitle title="Leistungen" subTitle="Wobei ich Sie unterstützen kann" id="leistungen" />
-        <div className="grid gap-5">
+
+        {/* Mobile */}
+        <div className="grid gap-5 lg:hidden">
           {ITEMS.map(({ title, description, svg }) => (
             <AccordionItem
               key={`services-item-${title}`}
@@ -96,6 +164,11 @@ export default function Services() {
               isOpen={openItem === title}
             />
           ))}
+        </div>
+
+        {/* Desktop */}
+        <div className="hidden lg:block">
+          <DesktopServices items={ITEMS} activeItem={activeItem} onSelect={setActiveTitle} />
         </div>
       </ContentPadding>
     </SectionContainer>

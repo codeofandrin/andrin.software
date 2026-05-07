@@ -27,11 +27,11 @@ export default function SectionTitle({
   }
 
   return (
-    <div className={`${smallPadding ? "pb-6" : "pb-14"} font-bold`}>
-      <h1 className={`${titleTextColor} scroll-mt-32 font-['DM-Serif'] text-xl italic`} id={id}>
+    <div className={`${smallPadding ? "pb-6" : "pb-14 sm:pb-20"} font-bold`}>
+      <h1 className={`${titleTextColor} scroll-mt-32 font-['DM-Serif'] text-xl italic sm:text-2xl`} id={id}>
         {title}
       </h1>
-      <h2 className={`mt-1 text-[2.3rem] leading-[1.3] font-bold`}>
+      <h2 className={`mt-1 text-[2.3rem] leading-[1.3] font-bold sm:text-[2.7rem]`}>
         <Highlight px="px-2" theme={theme}>
           {subTitle}
         </Highlight>
