@@ -115,7 +115,7 @@ function DesktopServices({
             )
           })}
         </div>
-        <div className="border-b border-gray-200" />
+        <div className="border-b border-neutral-200" />
         <div
           className="bg-secondary-100 absolute bottom-0 h-0.5 transition-transform duration-500 ease-in-out"
           style={{

@@ -4,25 +4,33 @@ import Link from "next/link"
 import SectionContainer from "./SectionContainer"
 import ContentPadding from "../ui/ContentPadding"
 import SectionTitle from "./SectionTitle"
-import SVGLink from "@/assets/svg/icons/link.svg"
 
 const ITEMS = [
   {
     type: "Desktop Applikation inkl. Website",
     title: "exifoo",
-    description: "Tool, um das Aufnahmedatum von Fotos zum Dateinamen hinzuzufügen",
+    description:
+      "Desktop-App zum automatischen Umbenennen von Fotos und Videos anhand des Aufnahmedatums – kostenlos und Open-Source",
     link: "https://exifoo.com",
     imagePath: "/images/exifoo_showcase.png",
-    imageTransforms: "scale-125 translate-x-20 opacity-15"
+    imageTransforms: "opacity-25 group-hover:opacity-100"
+  },
+  {
+    type: "Website",
+    title: "Zentral Hack",
+    description:
+      "Website für den grössten Hackathon der Zentralschweiz – verbindet Bildung, Wirtschaft und Community für Innovation und Nachwuchsförderung",
+    link: "https://zentralhack.ch",
+    imagePath: "/images/zentralhack_showcase.png",
+    imageTransforms: "opacity-25 group-hover:opacity-100"
   },
   {
     type: "Website",
     title: "wannfrei.ch",
-    description:
-      "Website, um einen Überblick über nationale, kantonale und regionale Feiertage in der Schweiz zu erhalten",
+    description: "Übersichtliche Website für nationale, kantonale und regionale Feiertage der Schweiz",
     link: "https://wannfrei.ch",
     imagePath: "/images/wannfrei_showcase.png",
-    imageTransforms: "scale-125 translate-y-5 opacity-25"
+    imageTransforms: "scale-125 translate-x-2 translate-y-5 opacity-25 group-hover:opacity-100"
   },
   {
     type: "Automatisierung",
@@ -30,34 +38,12 @@ const ITEMS = [
     description: "Interne Automatisierung zur Verwaltung von mehreren Radio Playlists auf Spotify",
     link: "https://github.com/codeofandrin/srfvirus-spotify",
     imagePath: "/images/music_playlist_showcase.png",
-    imageTransforms: "scale-125 translate-y-5 opacity-10"
+    imageTransforms: "scale-125 translate-y-5 opacity-15 group-hover:opacity-100"
   }
 ]
 
-interface CardContentProps {
-  type: string
-  title: string
-  description: string
-}
-
-function CardContent({ type, title, description }: CardContentProps) {
-  return (
-    <div className="relative z-10">
-      {/* Header */}
-      <div className="flex justify-between text-neutral-400">
-        <h3 className="font-['DM-Serif'] text-sm font-bold italic">{type}</h3>
-        <SVGLink className="h-4 w-4 stroke-[1.5px]" />
-      </div>
-      {/* Main */}
-      <div>
-        <h4 className="pt-5 pb-2 text-center text-3xl font-bold text-neutral-900">{title}</h4>
-        <p className="text-xl text-neutral-600">{description}</p>
-      </div>
-    </div>
-  )
-}
-
-interface CardProps {
+interface ProjectRowProps {
+  index: number
   type: string
   title: string
   description: string
@@ -66,24 +52,40 @@ interface CardProps {
   imageTransforms: string
 }
 
-function Card({ type, title, description, link, imagePath, imageTransforms }: CardProps) {
+function ProjectRow({ index, type, title, description, link, imagePath, imageTransforms }: ProjectRowProps) {
+  const num = String(index + 1).padStart(2, "0")
+
   return (
     <Link
       href={link}
       target="_blank"
-      className={`border-secondary-100 relative min-h-54 overflow-hidden rounded-lg border-[1.5px] p-5 hover:cursor-pointer`}>
-      {/* Background */}
-      <Image
-        src={imagePath}
-        alt={imagePath}
-        fill
-        className={`${imageTransforms} overflow-visible object-cover`}
-        priority={false}
-      />
-      {/* Background Overlay */}
-      <div className="bg-secondary-100/30 absolute inset-0 backdrop-blur-[2px]" />
+      className="group grid grid-cols-1 items-center gap-6 border-b border-neutral-200 py-8 last:border-b-0 lg:grid-cols-[1fr_auto] lg:gap-10">
+      {/* Number + title + type + description */}
+      <div className="flex flex-col gap-4">
+        <div className="relative">
+          <span className="text-secondary-70/15 block text-[80px] leading-none font-bold select-none lg:text-[100px]">
+            {num}
+          </span>
+          <div className="relative z-10 -mt-6 lg:-mt-8">
+            <h3 className="text-primary-100 text-3xl font-bold lg:text-4xl">{title}</h3>
+            <p className="text-primary-60 mt-1 font-['DM-Serif'] italic">{type}</p>
+          </div>
+        </div>
+        <p className="text-xl lg:text-2xl">{description}</p>
+      </div>
 
-      <CardContent type={type} title={title} description={description} />
+      {/* Image */}
+      <div className="relative flex shrink-0 justify-center sm:block">
+        <div className="relative h-48 w-full max-w-80 overflow-hidden rounded-lg border border-neutral-200 lg:h-44 lg:w-64">
+          <Image
+            src={imagePath}
+            alt={title}
+            fill
+            className={`${imageTransforms} object-cover transition-opacity duration-500`}
+            priority={false}
+          />
+        </div>
+      </div>
     </Link>
   )
 }
@@ -93,10 +95,11 @@ export default function Projects() {
     <SectionContainer>
       <ContentPadding>
         <SectionTitle id="projekte" title="Projekte" subTitle="Arbeiten aus der Praxis" />
-        <div className="grid gap-5">
-          {ITEMS.map(({ type, title, description, link, imagePath, imageTransforms }) => (
-            <Card
-              key={`projects-card-${title}`}
+        <div>
+          {ITEMS.map(({ type, title, description, link, imagePath, imageTransforms }, index) => (
+            <ProjectRow
+              key={`projects-row-${title}`}
+              index={index}
               type={type}
               title={title}
               description={description}
