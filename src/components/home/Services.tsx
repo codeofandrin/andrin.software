@@ -53,18 +53,23 @@ interface AccordionItemProps {
 function AccordionItem({ title, description, SvgComponent, handleToggle, isOpen }: AccordionItemProps) {
   return (
     <button
-      className={`${isOpen && "bg-secondary-10"} border-secondary-100 flex w-full flex-col items-center gap-4 rounded-lg border-[1.5px] px-5 transition-colors duration-150 ${isOpen ? "pt-1 pb-3" : "py-1"} leading-tight`}
+      className={`${isOpen && "bg-secondary-10"} border-secondary-100 flex w-full flex-col items-center rounded-lg border-[1.5px] px-5 leading-tight transition-colors duration-300`}
       onClick={() => handleToggle(title)}>
-      <div className="flex w-full items-center gap-3">
+      <div className="flex w-full items-center gap-3 py-1">
         {isOpen ? <SVGMinus className="h-6 w-6 stroke-2" /> : <SVGPlus className="h-6 w-6 stroke-2" />}
         <h3 className="pb-1 text-2xl font-semibold">{title}</h3>
       </div>
-      {isOpen && (
-        <>
-          <SvgComponent className="max-w-3/5" />
-          <p className="w-full text-left text-xl whitespace-pre-line">{description}</p>
-        </>
-      )}
+
+      <div
+        className={`grid w-full transition-[grid-template-rows] duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+        <div
+          className={`flex flex-col items-center gap-4 overflow-hidden transition-opacity delay-100 duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`}>
+          <div className="flex w-full flex-col items-center gap-4 pb-3">
+            <SvgComponent className="w-60 shrink-0" />
+            <p className="w-full text-left text-xl whitespace-pre-line">{description}</p>
+          </div>
+        </div>
+      </div>
     </button>
   )
 }
