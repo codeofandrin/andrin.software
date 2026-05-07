@@ -47,7 +47,7 @@ function HeroContactLink() {
 
 export default function Hero() {
   return (
-    <div className="section-border-b-dashed section-border-x-dashed relative lg:flex lg:min-h-[calc(100svh-var(--spacing-header-desktop))] lg:items-center">
+    <div className="section-border-b-dashed-mobile section-border-x-and-b-dashed-desktop relative pb-52 lg:flex lg:min-h-[calc(100svh-var(--spacing-header-desktop))] lg:items-center lg:pb-0">
       <ContentPadding className="grid w-full gap-y-8 pt-20 lg:flex lg:items-center lg:gap-x-16 lg:py-12 lg:pt-0">
         <div className="my-auto flex flex-col gap-y-8 sm:gap-y-12">
           <HeroHeader />
