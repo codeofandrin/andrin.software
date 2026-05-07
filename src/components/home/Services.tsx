@@ -89,6 +89,8 @@ function DesktopServices({
 
   function handleSelect(title: string) {
     const newIndex = items.findIndex((i) => i.title === title)
+    if (newIndex === activeIndex) return
+
     setDirection(newIndex > activeIndex ? "right" : "left")
     setAnimKey((k) => k + 1)
     onSelect(title)
