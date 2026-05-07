@@ -31,7 +31,7 @@ export default function SectionTitle({
       <h1 className={`${titleTextColor} scroll-mt-32 font-['DM-Serif'] text-xl italic`} id={id}>
         {title}
       </h1>
-      <h2 className={`text-section-subtitle mt-1 leading-[1.3] font-bold`}>
+      <h2 className={`mt-1 text-[2.3rem] leading-[1.3] font-bold`}>
         <Highlight px="px-2" theme={theme}>
           {subTitle}
         </Highlight>

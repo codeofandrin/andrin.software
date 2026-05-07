@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html className="scroll-smooth" suppressHydrationWarning>
       <body className="h-full">
         <Header />
-        <div className="mt-header-mobile">{children}</div>
+        <div>{children}</div>$
         <Footer />
       </body>
     </html>

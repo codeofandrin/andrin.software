@@ -69,7 +69,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="h-header-mobile sm:h-header-desktop section-border-b-dashed fixed top-0 right-0 left-0 z-[1000] w-full bg-white">
+      <header className="h-header-mobile sm:h-header-desktop section-border-b-dashed sticky top-0 right-0 left-0 z-[1000] w-full bg-white">
         <div className="flex h-full w-full justify-center">
           <div className="section-border-x-dashed sm:mx-body-desktop flex h-full w-full items-center justify-center sm:max-w-7xl">
             <div className="px-body-mobile flex w-full items-center justify-between py-5 sm:px-5 sm:py-0">

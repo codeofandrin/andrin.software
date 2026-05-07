@@ -16,12 +16,14 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="scroll-mt-header-mobile w-full max-w-screen-lg">
-      <Hero />
-      <Services />
-      <Projects />
-      <About />
-      <Contact />
+    <div className="sm:flex sm:justify-center">
+      <div className="sm:mx-body-desktop w-full sm:max-w-7xl">
+        <Hero />
+        <Services />
+        <Projects />
+        <About />
+        <Contact />
+      </div>
     </div>
   )
 }

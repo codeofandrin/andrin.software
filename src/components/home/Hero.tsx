@@ -9,10 +9,10 @@ import SVGHeroIllustration from "@/assets/svg/illustrations/hero_illustration.sv
 
 function HeroHeader() {
   return (
-    <h1 className="text-hero-main text-primary-100 leading-11 font-bold">
-      <span className="text-hero-serif font-['DM-Serif'] font-bold italic">Individuelle</span> Software
-      Lösungen{" "}
-      <div className="pt-2 leading-14">
+    <h1 className="text-primary-100 text-[2.7rem] leading-11 font-bold sm:text-[3.5rem] sm:leading-14">
+      <span className="font-['DM-Serif'] text-[2.5rem] font-bold italic sm:text-[3.1rem]">Individuelle</span>{" "}
+      Software Lösungen{" "}
+      <div className="pt-2 leading-14 sm:leading-18">
         <Highlight px="px-2">für Ihr KMU</Highlight>
       </div>
     </h1>
@@ -21,7 +21,7 @@ function HeroHeader() {
 
 function HeroSubline() {
   return (
-    <p className="text-primary-70 text-2xl">
+    <p className="text-primary-70 text-2xl sm:text-3xl">
       Von internen Tools bis Automatisierungen unterstütze ich Sie dort, wo Standardlösungen an ihre Grenzen
       stossen.
     </p>
@@ -35,12 +35,11 @@ function HeroContactLink() {
       href={`/#${hash}`}
       className="text-primary-40 flex items-center"
       onClick={() => {
-        // if same link, scroll manually to right position
         if (window.location.hash === `#${hash}`) {
           document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" })
         }
       }}>
-      <span className="pb-1 text-xl leading-none"> Kontakt</span>
+      <span className="pb-1 text-xl leading-none sm:text-2xl">Kontakt</span>
       <SVGArrowDown className="ml-2 w-4 stroke-2" />
     </Link>
   )
@@ -48,16 +47,20 @@ function HeroContactLink() {
 
 export default function Hero() {
   return (
-    <div className="section-border-b-dashed-mobile relative pb-52">
-      <ContentPadding className="grid gap-y-8 pt-20">
-        <HeroHeader />
-        <HeroSubline />
-        <HeroContactLink />
+    <div className="section-border-b-dashed section-border-x-dashed relative lg:flex lg:min-h-[calc(100svh-var(--spacing-header-desktop))] lg:items-center">
+      <ContentPadding className="grid w-full gap-y-8 pt-20 lg:flex lg:items-center lg:gap-x-16 lg:py-12 lg:pt-0">
+        <div className="my-auto flex flex-col gap-y-8 sm:gap-y-12">
+          <HeroHeader />
+          <HeroSubline />
+          <HeroContactLink />
+        </div>
+        <div className="mt-20 flex justify-center lg:mt-0 lg:shrink-0 lg:justify-end">
+          <SVGHeroIllustration className="w-3/4 max-w-lg lg:w-[450px] lg:max-w-full" />
+        </div>
       </ContentPadding>
-      <div className="mt-20 flex justify-center">
-        <SVGHeroIllustration className="max-w-3/4" />
+      <div className="absolute top-0 -z-[99] h-[800px] max-h-full w-full overflow-hidden">
+        <div className="dot-pattern-hero" />
       </div>
-      <div className="dot-pattern-hero absolute top-0 -z-[99]" />
     </div>
   )
 }
