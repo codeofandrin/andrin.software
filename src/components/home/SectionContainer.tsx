@@ -5,7 +5,7 @@ interface SectionContainerProps extends React.HTMLProps<HTMLDivElement> {
   theme?: string
   bgColor?: string
   noBottomPadding?: boolean
-  noBorder?: boolean
+  noBottomBorder?: boolean
 }
 
 export default function SectionContainer({
@@ -15,22 +15,20 @@ export default function SectionContainer({
   theme = "light",
   bgColor = "bg-inherit",
   noBottomPadding = false,
-  noBorder = false,
+  noBottomBorder = false,
   ...props
 }: SectionContainerProps) {
   let bottomPadding = noBottomPadding ? null : colorTransition ? "pb-36" : "pb-52 sm:pb-72"
   let border
 
-  if (!noBorder) {
-    switch (theme) {
-      case "light":
-        border = `section-border-b-dashed-mobile section-border-x-and-b-dashed-desktop ${colorTransition && "section-border-t-dashed-mobile section-border-x-and-t-dashed-desktop"}`
-        break
+  switch (theme) {
+    case "light":
+      border = `${noBottomBorder ? "section-border-x-dashed-desktop" : "section-border-b-dashed-mobile section-border-x-and-b-dashed-desktop"} ${colorTransition && "section-border-t-dashed-mobile section-border-x-and-t-dashed-desktop"}`
+      break
 
-      case "dark":
-        border = `section-border-b-dashed-dark-mobile section-border-x-and-b-dashed-dark-desktop ${colorTransition && "section-border-t-dashed-dark-mobile section-border-x-and-t-dashed-dark-desktop"}`
-        break
-    }
+    case "dark":
+      border = `${noBottomBorder ? "section-border-x-dashed-dark-desktop" : "section-border-b-dashed-dark-mobile section-border-x-and-b-dashed-dark-desktop"} ${colorTransition && "section-border-t-dashed-dark-mobile section-border-x-and-t-dashed-dark-desktop"}`
+      break
   }
 
   return (

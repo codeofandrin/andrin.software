@@ -92,7 +92,7 @@ function ProjectRow({ index, type, title, description, link, imagePath, imageTra
 
 export default function Projects() {
   return (
-    <SectionContainer>
+    <SectionContainer noBottomBorder>
       <ContentPadding>
         <SectionTitle id="projekte" title="Projekte" subTitle="Arbeiten aus der Praxis" />
         <div>

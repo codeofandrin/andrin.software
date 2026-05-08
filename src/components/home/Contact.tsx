@@ -229,7 +229,7 @@ function ContactForm() {
 
 export default function Contact() {
   return (
-    <SectionContainer className="relative" noBottomPadding noBorder>
+    <SectionContainer className="relative" noBottomPadding noBottomBorder>
       <ContentPadding>
         <SectionTitle
           id="kontakt"
