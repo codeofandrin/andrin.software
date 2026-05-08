@@ -16,14 +16,12 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="sm:flex sm:justify-center">
-      <div className="sm:mx-body-desktop w-full sm:max-w-7xl">
-        <Hero />
-        <Services />
-        <Projects />
-        <About />
-        <Contact />
-      </div>
+    <div className="w-full sm:flex sm:flex-col sm:items-center">
+      <Hero />
+      <Services />
+      <Projects />
+      <About />
+      <Contact />
     </div>
   )
 }
