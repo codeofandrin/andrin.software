@@ -5,6 +5,7 @@ interface SectionContainerProps extends React.HTMLProps<HTMLDivElement> {
   theme?: string
   bgColor?: string
   noBottomPadding?: boolean
+  noTopPadding?: boolean
   noYBorder?: boolean
 }
 
@@ -15,10 +16,12 @@ export default function SectionContainer({
   theme = "light",
   bgColor = "bg-inherit",
   noBottomPadding = false,
+  noTopPadding = false,
   noYBorder = false,
   ...props
 }: SectionContainerProps) {
   const bottomPadding = noBottomPadding ? "" : colorTransition ? "pb-36" : "pb-52 sm:pb-72"
+  const topPadding = noTopPadding ? "" : "pt-16 sm:pt-40"
 
   const isLight = theme === "light"
 
@@ -46,7 +49,7 @@ export default function SectionContainer({
     return (
       <div className={`${bgColor} w-full sm:flex sm:justify-center`}>
         <div className={`sm:mx-body-desktop py-16 sm:max-w-7xl sm:py-40 ${xBorder}`}>
-          <div className={`${innerBorder} pt-16 sm:pt-40 ${bottomPadding} ${className ?? ""}`} {...props}>
+          <div className={`${innerBorder} ${topPadding} ${bottomPadding} ${className ?? ""}`} {...props}>
             {children}
           </div>
         </div>
@@ -60,7 +63,7 @@ export default function SectionContainer({
   return (
     <div className="sm:mx-body-desktop sm:max-w-7xl">
       <div
-        className={`${border} w-full pt-16 sm:pt-40 ${bottomPadding} ${bgColor} ${className ?? ""}`}
+        className={`${border} w-full ${topPadding} ${bottomPadding} ${bgColor} ${className ?? ""}`}
         {...props}>
         {children}
       </div>
