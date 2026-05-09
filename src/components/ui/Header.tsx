@@ -18,7 +18,7 @@ function MobileMenu({ setMenuOpen }: MobileMenuProps) {
     <div className="max-h-screen overscroll-none">
       <div className="top-header-mobile fixed right-0 bottom-0 left-0 z-[1000] w-full bg-white">
         {/* Menu Items */}
-        <div className="px-body-mobile grid gap-10 pt-12">
+        <div className="px-body-mobile grid gap-12 pt-12">
           {MENU_ITEMS.map(({ name, link }) => {
             return (
               <div key={`menu-item-${name}`}>
@@ -32,7 +32,7 @@ function MobileMenu({ setMenuOpen }: MobileMenuProps) {
                       document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" })
                     }
                   }}
-                  className="text-primary-100 hover:text-primary-60 py-2 text-3xl font-bold transition-colors duration-300">
+                  className="text-primary-100 hover:text-primary-60 py-2 text-3xl font-extrabold transition-colors duration-300">
                   {name}
                 </Link>
               </div>
