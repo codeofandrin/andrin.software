@@ -86,27 +86,24 @@ export default function Header() {
               </Link>
               {/* Desktop Navigation */}
               <div className="hidden gap-20 lg:flex">
-                {MENU_ITEMS.map(({ name, link }) => {
-                  return (
-                    <div key={`menu-item-${name}`}>
-                      <Link
-                        href={link}
-                        onClick={() => {
-                          setMenuOpen(false)
-                          // if same link, scroll manually to right position
-                          const hash = link.split("#")[1]
-                          if (hash && window.location.hash === `#${hash}`) {
-                            document
-                              .getElementById(hash)
-                              ?.scrollIntoView({ behavior: "smooth", block: "start" })
-                          }
-                        }}
-                        className="text-primary-100 hover:text-primary-60 text-xl font-extrabold transition-colors duration-300">
-                        {name}
-                      </Link>
-                    </div>
-                  )
-                })}
+                {MENU_ITEMS.map(({ name, link }) => (
+                  <div key={`menu-item-${name}`}>
+                    <Link
+                      href={link}
+                      onClick={() => {
+                        setMenuOpen(false)
+                        const hash = link.split("#")[1]
+                        if (hash && window.location.hash === `#${hash}`) {
+                          document
+                            .getElementById(hash)
+                            ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                        }
+                      }}
+                      className="text-primary-100 hover:text-primary-60 text-xl font-extrabold transition-colors duration-300">
+                      {name}
+                    </Link>
+                  </div>
+                ))}
               </div>
               {/* Mobile Menu Button */}
               <button className="hover:cursor-pointer lg:hidden" onClick={handleMenuToggle}>
@@ -118,9 +115,9 @@ export default function Header() {
               </button>
             </div>
           </div>
-          {isMenuOpen && <MobileMenu setMenuOpen={setMenuOpen} />}
         </div>
       </header>
+      {isMenuOpen && <MobileMenu setMenuOpen={setMenuOpen} />}
     </>
   )
 }
