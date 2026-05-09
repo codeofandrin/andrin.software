@@ -54,6 +54,13 @@ function MobileMenu({ setMenuOpen }: MobileMenuProps) {
 
 export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 0)
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : ""
@@ -69,12 +76,13 @@ export default function Header() {
 
   return (
     <>
-      <header className="h-header-mobile sm:h-header-desktop section-border-b-dashed-mobile section-border-b-dashed-desktop sticky top-0 right-0 left-0 z-[1000] w-full bg-white">
+      <header
+        className={`sticky top-0 right-0 left-0 z-[1000] w-full bg-white/80 backdrop-blur-lg transition-shadow duration-300 ${scrolled ? "shadow-sm" : ""}`}>
         <div className="flex h-full w-full justify-center">
           <div className="section-border-x-dashed-desktop sm:mx-body-desktop flex h-full w-full items-center justify-center sm:max-w-7xl">
-            <div className="px-body-mobile flex w-full items-center justify-between py-5 sm:px-5 sm:py-0">
+            <div className="px-body-mobile flex w-full items-center justify-between py-5 sm:px-5 sm:py-7">
               <Link className="h-fit w-fit" href={"/"} onClick={() => setMenuOpen(false)}>
-                <SVGLogoLarge className="w-[150px] sm:w-[220px]" />
+                <SVGLogoLarge className="w-[150px] sm:w-[180px]" />
               </Link>
               {/* Desktop Navigation */}
               <div className="hidden gap-20 lg:flex">
@@ -93,7 +101,7 @@ export default function Header() {
                               ?.scrollIntoView({ behavior: "smooth", block: "start" })
                           }
                         }}
-                        className="text-primary-100 hover:text-primary-60 text-2xl font-bold transition-colors duration-300">
+                        className="text-primary-100 hover:text-primary-60 text-xl font-extrabold transition-colors duration-300">
                         {name}
                       </Link>
                     </div>
@@ -103,9 +111,9 @@ export default function Header() {
               {/* Mobile Menu Button */}
               <button className="hover:cursor-pointer lg:hidden" onClick={handleMenuToggle}>
                 {isMenuOpen ? (
-                  <SVGXMark className="w-[40px] stroke-neutral-900 stroke-[1.5]" />
+                  <SVGXMark className="w-[40px] stroke-neutral-900 stroke-[1.5] sm:w-[35px]" />
                 ) : (
-                  <SVGMenu className="w-[40px] stroke-neutral-900 stroke-[1.5]" />
+                  <SVGMenu className="w-[40px] stroke-neutral-900 stroke-[1.5] sm:w-[35px]" />
                 )}
               </button>
             </div>

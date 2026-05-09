@@ -154,6 +154,12 @@
     border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
   }
 
+  .section-border-b-and-t-dashed-mobile {
+    border-bottom: 1.5px solid transparent;
+    border-top: 1.5px solid transparent;
+    border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
+  }
+
   .section-border-t-dashed-dark-mobile {
     border-top: 1.5px solid transparent;
     border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.5) 0 10px, transparent 10px 20px) 1;
@@ -180,6 +186,12 @@
   .section-border-t-dashed-dark-desktop {
     border-top: 2px solid transparent;
     border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.5) 0 10px, transparent 10px 20px) 1;
+  }
+
+  .section-border-b-and-t-dashed-desktop {
+    border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
+    border-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0 10px, transparent 10px 20px) 1;
   }
 
   .section-border-x-dashed-desktop {

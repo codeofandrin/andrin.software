@@ -197,7 +197,7 @@ function ContactForm() {
 
 export default function Contact() {
   return (
-    <SectionContainer className="relative">
+    <SectionContainer className="relative" noBBorder>
       <ContentPadding>
         <SectionTitle
           id="kontakt"

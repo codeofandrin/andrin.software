@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="w-full sm:flex sm:flex-col sm:items-center">
+    <div className="section-border-b-and-t-dashed-mobile section-border-b-and-t-dashed-desktop w-full sm:flex sm:flex-col sm:items-center">
       <Hero />
       <Services />
       <Projects />

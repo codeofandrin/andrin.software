@@ -6,7 +6,7 @@ interface SectionContainerProps extends React.HTMLProps<HTMLDivElement> {
   bgColor?: string
   noBottomPadding?: boolean
   noTopPadding?: boolean
-  noYBorder?: boolean
+  noBBorder?: boolean
 }
 
 export default function SectionContainer({
@@ -17,7 +17,7 @@ export default function SectionContainer({
   bgColor = "bg-inherit",
   noBottomPadding = false,
   noTopPadding = false,
-  noYBorder = false,
+  noBBorder = false,
   ...props
 }: SectionContainerProps) {
   const bottomPadding = noBottomPadding ? "" : colorTransition ? "pb-36" : "pb-52 sm:pb-72"
@@ -44,7 +44,7 @@ export default function SectionContainer({
     : "section-border-t-dashed-dark-mobile section-border-t-dashed-dark-desktop"
 
   if (colorTransition) {
-    const innerBorder = [!noYBorder && bBorder, tBorder].filter(Boolean).join(" ")
+    const innerBorder = [!noBBorder && bBorder, tBorder].filter(Boolean).join(" ")
 
     return (
       <div className={`${bgColor} w-full sm:flex sm:justify-center`}>
@@ -57,8 +57,8 @@ export default function SectionContainer({
     )
   }
 
-  // Default: x always active on desktop, combine with b if noYBorder is false
-  const border = noYBorder ? xBorder : xAndBBorder
+  // Default: x always active on desktop, combine with b if noBBorder is false
+  const border = noBBorder ? xBorder : xAndBBorder
 
   return (
     <div className="w-full sm:flex sm:justify-center">
