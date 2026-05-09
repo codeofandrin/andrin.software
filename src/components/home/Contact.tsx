@@ -1,66 +1,17 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 import { EMail } from "@/lib/constants"
 import ContentPadding from "@/components/ui/ContentPadding"
 import SectionContainer from "./SectionContainer"
 import SectionTitle from "./SectionTitle"
 import HyperLink from "@/components/ui/HyperLink"
+import Toast, { ToastData } from "../ui/Toast"
 import SVGEnvelope from "@/assets/svg/icons/envelope.svg"
 import SVGPaperAirplane from "@/assets/svg/icons/paper_airplane.svg"
 import SVGContactIllustration from "@/assets/svg/illustrations/contact_illustration.svg"
-import SVGCheckCircle from "@/assets/svg/icons/check_circle.svg"
-import SVGXCircle from "@/assets/svg/icons/x_circle.svg"
 import SVGSpinner from "@/assets/svg/icons/spinner.svg"
-
-type ToastType = "success" | "error"
-
-interface Toast {
-  message: string
-  type: ToastType
-}
-
-interface ToastComponentProps {
-  toast: Toast | null
-  onClose: () => void
-}
-
-function Toast({ toast, onClose }: ToastComponentProps) {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    if (!toast) return
-
-    setVisible(true)
-
-    const timer = setTimeout(() => {
-      // fly out
-      setVisible(false)
-      // wait until gone
-      setTimeout(onClose, 300)
-    }, 4000)
-
-    return () => clearTimeout(timer)
-  }, [toast, onClose])
-
-  if (!toast) return null
-
-  return (
-    <div className="pointer-events-none fixed bottom-4 left-0 w-full">
-      <div
-        className={`mx-4 rounded-lg border border-neutral-300 bg-neutral-50 p-3 shadow-lg transition-all duration-300 ease-out ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"} `}>
-        <div className="flex items-center gap-3">
-          {toast.type === "success" && (
-            <SVGCheckCircle className="size-6 shrink-0 stroke-[1.5px] text-green-600" />
-          )}
-          {toast.type === "error" && <SVGXCircle className="size-6 shrink-0 stroke-[1.5px] text-red-600" />}
-          <p className="mb-1 min-w-0 text-lg leading-tight break-words">{toast.message}</p>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 function ContactDescription() {
   return (
@@ -75,8 +26,8 @@ function ContactMail() {
   return (
     <HyperLink
       href={`mailto:${EMail.general}`}
-      className="mt-6"
-      icon={<SVGEnvelope className="h-5 w-5 stroke-[1.5px]" />}>
+      className="mt-6 lg:mt-14"
+      icon={<SVGEnvelope className="h-5 w-5 stroke-[1.5px] sm:h-6 sm:w-6" />}>
       {EMail.general}
     </HyperLink>
   )
@@ -88,14 +39,21 @@ interface ContactFormInputProps {
   type: string
   placeholder: string
   required?: boolean
+  containerClassName?: string
 }
 
-function ContactFormInput({ id, title, type, placeholder, required = false }: ContactFormInputProps) {
-  const textClassname =
-    "text-neutral-700 align-top text-xl mt-2 bg-primary-10 border-1 border-primary-50 rounded-lg pt-2 pb-2.5 px-5 w-full"
+function ContactFormInput({
+  id,
+  title,
+  type,
+  placeholder,
+  required = false,
+  containerClassName = ""
+}: ContactFormInputProps) {
+  const textClassname = `text-neutral-700 align-top text-xl mt-2 bg-primary-10 border-1 border-primary-50 rounded-lg w-full`
 
   return (
-    <div>
+    <div className={`${containerClassName} w-full`}>
       <label htmlFor={`f${id}`} className="text-xl font-semibold text-neutral-700">
         {required && <span className="text-red-500">* </span>}
         {title}
@@ -104,7 +62,7 @@ function ContactFormInput({ id, title, type, placeholder, required = false }: Co
         <textarea
           id={`f${id}`}
           name={id}
-          className={`${textClassname} h-64 resize-none`}
+          className={`${textClassname} h-64 resize-none px-5 pt-2 pb-2.5`}
           placeholder={placeholder}
           required={required}
         />
@@ -112,7 +70,7 @@ function ContactFormInput({ id, title, type, placeholder, required = false }: Co
         <input
           id={`f${id}`}
           name={id}
-          className={textClassname}
+          className={`${textClassname} px-5 pt-2 pb-2.5 lg:px-4 lg:pt-1 lg:pb-1.5`}
           type={type}
           placeholder={placeholder}
           required={required}
@@ -131,7 +89,7 @@ function ContactFormSubmitButton({ loading }: ContactFormSubmitButtonProps) {
     <button
       type="submit"
       disabled={loading}
-      className={`group flex w-full items-center justify-center rounded-lg pt-2 pb-2.5 text-white transition-colors duration-300 ${loading ? "cursor-not-allowed bg-neutral-900" : "bg-primary-100 hover:cursor-pointer"}`}>
+      className={`group flex w-full items-center justify-center rounded-lg pt-2 pb-2.5 text-white transition-colors duration-300 lg:pt-1 lg:pb-1.5 ${loading ? "cursor-not-allowed bg-neutral-900" : "bg-primary-100 hover:cursor-pointer"}`}>
       {loading ? (
         <SVGSpinner className="size-6 animate-spin stroke-[1.5px] text-white" />
       ) : (
@@ -145,7 +103,7 @@ function ContactFormSubmitButton({ loading }: ContactFormSubmitButtonProps) {
 
 function ContactForm() {
   const [loading, setLoading] = useState(false)
-  const [toast, setToast] = useState<Toast | null>(null)
+  const [toast, setToast] = useState<ToastData | null>(null)
 
   async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -199,16 +157,26 @@ function ContactForm() {
   }
 
   return (
-    <ContentPadding className="pb-52">
-      <form onSubmit={handleSubmit} className="mt-6 grid gap-6">
-        <ContactFormInput id="name" title="Name" type="text" placeholder="Max Mustermann" required />
-        <ContactFormInput
-          id="email"
-          title="E-Mail"
-          type="email"
-          placeholder="max.mustermann@example.com"
-          required
-        />
+    <div>
+      <form onSubmit={handleSubmit} className="mt-6 grid gap-6 lg:mt-0 lg:gap-12">
+        <div className="grid gap-6 lg:flex lg:w-full">
+          <ContactFormInput
+            containerClassName="lg:basis-3/7"
+            id="name"
+            title="Name"
+            type="text"
+            placeholder="Max Mustermann"
+            required
+          />
+          <ContactFormInput
+            containerClassName="lg:basis-4/7"
+            id="email"
+            title="E-Mail"
+            type="email"
+            placeholder="max.mustermann@example.com"
+            required
+          />
+        </div>
         <ContactFormInput
           id="message"
           title="Nachricht"
@@ -223,13 +191,13 @@ function ContactForm() {
         </div>
       </form>
       <Toast toast={toast} onClose={() => setToast(null)} />
-    </ContentPadding>
+    </div>
   )
 }
 
 export default function Contact() {
   return (
-    <SectionContainer className="relative" noBottomPadding noYBorder>
+    <SectionContainer className="relative">
       <ContentPadding>
         <SectionTitle
           id="kontakt"
@@ -238,17 +206,21 @@ export default function Contact() {
           theme="light"
           smallPadding
         />
-        <div className="text-xl">
-          <ContactDescription />
-          <ContactMail />
+        <div className="lg:flex lg:gap-30">
+          <div className="lg:flex lg:basis-2/5 lg:flex-col lg:justify-between">
+            <div className="text-xl sm:text-2xl">
+              <ContactDescription />
+              <ContactMail />
+            </div>
+            <div className="mt-7 flex justify-center lg:mt-0">
+              <SVGContactIllustration className="w-1/2 max-w-[200px] -scale-x-100 lg:w-full" />
+            </div>
+          </div>
+          <div className="lg:basis-3/5">
+            <ContactForm />
+          </div>
         </div>
       </ContentPadding>
-      <div className="mt-7">
-        <div className="flex justify-center">
-          <SVGContactIllustration className="max-w-2/5 -scale-x-100" />
-        </div>
-        <ContactForm />
-      </div>
       <div className="dot-pattern-contact absolute bottom-0 -z-[99]" />
     </SectionContainer>
   )

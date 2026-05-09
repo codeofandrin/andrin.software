@@ -61,7 +61,7 @@ export default function SectionContainer({
   const border = noYBorder ? xBorder : xAndBBorder
 
   return (
-    <div className="sm:mx-body-desktop sm:max-w-7xl">
+    <div className="sm:mx-body-desktop w-full sm:max-w-7xl">
       <div
         className={`${border} w-full ${topPadding} ${bottomPadding} ${bgColor} ${className ?? ""}`}
         {...props}>
