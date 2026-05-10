@@ -84,7 +84,18 @@ export default function Header() {
         <div className="flex h-full w-full justify-center">
           <div className="section-border-x-dashed-desktop sm:mx-body-desktop flex h-full w-full items-center justify-center sm:max-w-7xl">
             <div className="px-body-mobile flex w-full items-center justify-between py-5 sm:px-5 sm:py-7">
-              <Link className="h-fit w-fit" href={"/"} onClick={() => setMenuOpen(false)}>
+              <Link
+                className="h-fit w-fit"
+                href={"/"}
+                onClick={(e) => {
+                  setMenuOpen(false)
+                  // Remove hash from URL to prevent Next.js from scrolling to the last anchor
+                  if (window.location.hash) {
+                    e.preventDefault()
+                    window.history.pushState(null, "", "/")
+                  }
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                }}>
                 <SVGLogoLarge className="w-[150px] sm:w-[180px]" />
               </Link>
               {/* Desktop Navigation */}
