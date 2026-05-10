@@ -65,7 +65,7 @@ function AccordionItem({ title, description, SvgComponent, handleToggle, isOpen 
         <div
           className={`flex flex-col items-center gap-4 overflow-hidden transition-opacity delay-100 duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`}>
           <div className="flex w-full flex-col items-center gap-4 pb-3">
-            <SvgComponent className="w-60 shrink-0" />
+            <SvgComponent className="w-60 max-w-4/5 shrink-0" />
             <p className="w-full text-left text-xl whitespace-pre-line">{description}</p>
           </div>
         </div>
