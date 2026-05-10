@@ -1,21 +1,30 @@
+"use client"
+
 import HyperLink from "./HyperLink"
 import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
 
-import { EMail } from "@/lib/constants"
+import { EmailObfuscated } from "@/lib/constants"
+import { useObfuscatedEmail } from "@/hooks/useObfuscatedEmail"
 
 interface MarkdownContentPropsType {
   children: string
 }
 
 export default function MarkdownContent({ children }: MarkdownContentPropsType) {
+  const {
+    label: decodedLabel,
+    reveal: revealEmail,
+    isRevealed: isEmailRevealed
+  } = useObfuscatedEmail(EmailObfuscated.general)
+
   return (
     <div className="content">
       <Markdown
         rehypePlugins={[rehypeRaw]}
         components={{
           a(props: any) {
-            const replaceList = [{ from: "$email-general", to: EMail.general }]
+            const replaceList = [{ from: "$email-general", to: decodedLabel }]
 
             let content = (props.children as string) || ""
             let href = props.href || ""
@@ -25,8 +34,14 @@ export default function MarkdownContent({ children }: MarkdownContentPropsType) 
               href = href.replaceAll(replacePair.from, replacePair.to)
             }
 
+            const isEmailLink = props.href?.includes("$email-")
+
             return (
-              <HyperLink href={href} target="_blank">
+              <HyperLink
+                href={href}
+                className={`${isEmailLink && !isEmailRevealed && "italic"}`}
+                target="_blank"
+                onClick={isEmailLink ? revealEmail : undefined}>
                 {content}
               </HyperLink>
             )

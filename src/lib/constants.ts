@@ -1,5 +1,5 @@
-export class EMail {
-  static general = "mail@andrin.software"
+export class EmailObfuscated {
+  static general = "YldGcGJFQmhibVJ5YVc0dWMyOW1kSGRoY21VPQ==" // base64 encoded (2x)
 }
 
 export class Socials {

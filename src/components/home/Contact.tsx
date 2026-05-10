@@ -2,13 +2,10 @@
 
 import { useState } from "react"
 
-import { EMail } from "@/lib/constants"
 import ContentPadding from "@/components/ui/ContentPadding"
 import SectionContainer from "./SectionContainer"
 import SectionTitle from "./SectionTitle"
-import HyperLink from "@/components/ui/HyperLink"
 import Toast, { ToastData } from "../ui/Toast"
-import SVGEnvelope from "@/assets/svg/icons/envelope.svg"
 import SVGPaperAirplane from "@/assets/svg/icons/paper_airplane.svg"
 import SVGContactIllustration from "@/assets/svg/illustrations/contact_illustration.svg"
 import SVGSpinner from "@/assets/svg/icons/spinner.svg"
@@ -19,17 +16,6 @@ function ContactDescription() {
       Haben Sie eine konkrete Anfrage oder möchten ein Projekt unverbindlich besprechen? Dann freue ich mich
       auf Ihre Kontaktaufnahme.
     </p>
-  )
-}
-
-function ContactMail() {
-  return (
-    <HyperLink
-      href={`mailto:${EMail.general}`}
-      className="mt-6 lg:mt-14"
-      icon={<SVGEnvelope className="h-5 w-5 stroke-[1.5px] sm:h-6 sm:w-6" />}>
-      {EMail.general}
-    </HyperLink>
   )
 }
 
@@ -210,7 +196,6 @@ export default function Contact() {
           <div className="lg:flex lg:basis-2/5 lg:flex-col lg:justify-between">
             <div className="text-xl sm:text-2xl">
               <ContactDescription />
-              <ContactMail />
             </div>
             <div className="mt-7 flex justify-center lg:mt-0">
               <SVGContactIllustration className="w-1/2 max-w-[200px] -scale-x-100 lg:w-full" />

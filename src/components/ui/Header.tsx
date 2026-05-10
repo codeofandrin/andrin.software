@@ -3,18 +3,22 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 
-import { EMail } from "@/lib/constants"
+import { EmailObfuscated } from "@/lib/constants"
 import { MENU_ITEMS } from "@/lib/constants"
 import SVGLogoLarge from "@/assets/svg/brand/logo_large.svg"
 import SVGMenu from "@/assets/svg/icons/menu.svg"
 import SVGXMark from "@/assets/svg/icons/x_mark.svg"
 import ContentPadding from "./ContentPadding"
+import { useObfuscatedEmail } from "@/hooks/useObfuscatedEmail"
+import SVGEnvelope from "@/assets/svg/icons/envelope.svg"
 
 interface MobileMenuProps {
   setMenuOpen: (isOpen: boolean) => void
 }
 
 function MobileMenu({ setMenuOpen }: MobileMenuProps) {
+  const { href, label, reveal, isRevealed } = useObfuscatedEmail(EmailObfuscated.general)
+
   return (
     <div className="max-h-screen overscroll-none">
       <div className="top-header-mobile sm:top-header-desktop section-border-t-dashed-desktop fixed right-0 bottom-0 left-0 z-[1000] w-full bg-white/80 backdrop-blur-lg">
@@ -44,9 +48,13 @@ function MobileMenu({ setMenuOpen }: MobileMenuProps) {
         <div className="section-border-t-dashed-mobile section-border-t-dashed-desktop fixed bottom-0 w-full">
           <ContentPadding className="sm:mx-body-desktop section-border-x-dashed-desktop py-5">
             <Link
-              href={`mailto:${EMail.general}`}
-              className="hover:text-primary-100 text-xl text-neutral-500 transition-colors duration-300">
-              {EMail.general}
+              href={href}
+              onMouseEnter={reveal}
+              onFocus={reveal}
+              onClick={reveal}
+              className={`hover:text-primary-100 flex items-center gap-2 text-xl text-neutral-500 transition-colors duration-300 ${!isRevealed && "italic"}`}>
+              <SVGEnvelope className="h-5 w-5 stroke-[1.5px]" />
+              <span className="pb-1.5">{label}</span>
             </Link>
           </ContentPadding>
         </div>

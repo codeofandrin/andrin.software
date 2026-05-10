@@ -2,7 +2,7 @@ import { NextResponse, NextRequest } from "next/server"
 import { checkRateLimit } from "@vercel/firewall"
 import { Resend } from "resend"
 
-import { EMail } from "@/lib/constants"
+import { EmailBackend } from "@/lib/server/constants"
 import ContactNotificationEmail from "@/emails/ContactNotificationEmail"
 import ContactConfirmationEmail from "@/emails/ContactConfirmationEmail"
 import { contactSchema } from "@/lib/validations/contact"
@@ -48,9 +48,9 @@ export async function POST(request: NextRequest): Promise<NextResponse<APIRespon
 
 async function sendNotificationEmail(name: string, email: string, message: string) {
   const { data, error } = await resend.emails.send({
-    from: `andrin.software <${EMail.general}>`,
+    from: `andrin.software <${EmailBackend.general}>`,
     replyTo: email,
-    to: [EMail.general],
+    to: [EmailBackend.general],
     subject: `andrin.software - Neue Kontaktanfrage von ${name}`,
     react: ContactNotificationEmail({ name, email, message })
   })
@@ -64,8 +64,8 @@ async function sendNotificationEmail(name: string, email: string, message: strin
 
 async function sendConfirmationEmail(name: string, email: string, message: string) {
   const { data, error } = await resend.emails.send({
-    from: `andrin.software <${EMail.general}>`,
-    replyTo: EMail.general,
+    from: `andrin.software <${EmailBackend.general}>`,
+    replyTo: EmailBackend.general,
     to: [email],
     subject: `Danke für Ihre Kontaktanfrage`,
     react: ContactConfirmationEmail({ name, email, message })
