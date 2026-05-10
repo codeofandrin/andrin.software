@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 
 import MarkdownContent from "@/components/ui/MarkdownContent"
 import MdPrivacy from "./privacy.md"
+import SectionContainer from "@/components/home/SectionContainer"
+import ContentPadding from "@/components/ui/ContentPadding"
 
 export const metadata: Metadata = {
   title: "Datenschutz - andrin.software"
@@ -9,10 +11,12 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <div className="mt-header-mobile scroll-mt-header-mobile w-full max-w-screen-lg">
-      <div className="px-body-mobile content-privacy py-20">
-        <MarkdownContent>{MdPrivacy}</MarkdownContent>
-      </div>
+    <div className="w-full sm:flex sm:flex-col sm:items-center">
+      <SectionContainer noBBorder>
+        <ContentPadding>
+          <MarkdownContent>{MdPrivacy}</MarkdownContent>
+        </ContentPadding>
+      </SectionContainer>
     </div>
   )
 }

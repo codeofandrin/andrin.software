@@ -72,19 +72,19 @@
 /* Markdown content */
 
 .content h1 {
-  @apply text-primary-100 pb-6 font-['DM-Serif'] text-4xl font-bold italic sm:text-4xl sm:font-semibold;
+  @apply text-primary-100 pb-6 font-['DM-Serif'] text-4xl text-[2.7rem] font-bold italic sm:font-semibold;
 }
 
 .content h2 {
-  @apply text-primary-100 pb-3 text-3xl font-bold sm:text-3xl;
+  @apply text-primary-100 pb-3 text-3xl font-bold sm:text-[2rem];
 }
 
 .content h3 {
-  @apply text-primary-100 pb-3 text-2xl font-bold text-neutral-900 sm:text-xl;
+  @apply text-primary-100 pb-3 text-2xl font-bold text-neutral-900 sm:text-[1.7rem];
 }
 
 .content p {
-  @apply text-xl text-neutral-700;
+  @apply text-xl text-neutral-700 sm:text-2xl;
 }
 
 .content ul {
@@ -96,7 +96,7 @@
 }
 
 .content .spacer-lg {
-  @apply h-10 sm:h-12;
+  @apply h-10 sm:h-14;
 }
 
 .content .spacer-2xl {
