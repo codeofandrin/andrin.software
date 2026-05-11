@@ -13,13 +13,37 @@ export default function ContactConfirmationEmail({ name, email, message }: Conta
   return (
     <Html>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+          {`body { -webkit-text-size-adjust: 100% !important; text-size-adjust: 100% !important; }
+        `}
+        </style>
         <Font
           fontFamily="Darker Grotesque"
           fallbackFontFamily="Arial"
           webFont={{
-            url: "https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap",
+            url: "https://fonts.gstatic.com/s/darkergrotesque/v10/U9MK6cuh-mLQlC4BKCtayOfARkSVgb381b-W8-QDqXwFqk7183BQYUUAOE8.woff2",
             format: "woff2"
           }}
+          fontWeight={500}
+        />
+        <Font
+          fontFamily="Darker Grotesque"
+          fallbackFontFamily="Arial"
+          webFont={{
+            url: "https://fonts.gstatic.com/s/darkergrotesque/v10/U9MK6cuh-mLQlC4BKCtayOfARkSVgb381b-W8-QDqXzprU7183BQYUUAOE8.woff2",
+            format: "woff2"
+          }}
+          fontWeight={600}
+        />
+        <Font
+          fontFamily="Darker Grotesque"
+          fallbackFontFamily="Arial"
+          webFont={{
+            url: "https://fonts.gstatic.com/s/darkergrotesque/v10/U9MK6cuh-mLQlC4BKCtayOfARkSVgb381b-W8-QDqXzQrU7183BQYUUAOE8.woff2",
+            format: "woff2"
+          }}
+          fontWeight={700}
         />
       </Head>
       <Preview>Danke für Ihre Kontaktanfrage - andrin.software</Preview>
