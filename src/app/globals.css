@@ -72,7 +72,7 @@
 /* Markdown content */
 
 .content h1 {
-  @apply text-primary-100 pb-6 font-['DM-Serif'] text-4xl text-[2.7rem] font-bold italic sm:font-semibold;
+  @apply text-primary-100 pb-6 font-['DM-Serif'] text-4xl text-[2.7rem] font-bold hyphens-auto italic sm:font-semibold;
 }
 
 .content h2 {

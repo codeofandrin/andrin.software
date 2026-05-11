@@ -19,7 +19,7 @@ export default function MarkdownContent({ children }: MarkdownContentPropsType) 
   } = useObfuscatedEmail(EmailObfuscated.general)
 
   return (
-    <div className="content">
+    <div className="content" lang="de">
       <Markdown
         rehypePlugins={[rehypeRaw]}
         components={{
