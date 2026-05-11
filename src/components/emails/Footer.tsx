@@ -8,14 +8,14 @@ export default function Footer() {
       <Row>
         <Column align="center">
           <Row>
-            <Link className="text-sm text-neutral-400" href={`${Routes.self}/impressum`}>
+            <Link className="text-neutral-400" href={`${Routes.self}/impressum`}>
               Impressum
             </Link>
-            <Link className="ml-10 text-sm text-neutral-400" href={`${Routes.self}/datenschutz`}>
+            <Link className="ml-10 text-neutral-400" href={`${Routes.self}/datenschutz`}>
               Datenschutz
             </Link>
           </Row>
-          <Text className="mt-2 text-sm text-neutral-400">
+          <Text className="mt-2 text-neutral-400">
             Copyright © 2026 andrin.software. Alle Rechte vorbehalten.
           </Text>
         </Column>

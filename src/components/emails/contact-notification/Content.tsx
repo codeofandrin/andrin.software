@@ -17,16 +17,16 @@ export default function Content({ name, email, message }: ContentProps) {
       <Row>
         <Column className="rounded-lg border border-neutral-200 p-5">
           <Text className="mb-4 text-2xl font-semibold">Angaben im Überblick</Text>
-          <Text className="text-lg">
+          <Text className="text-xl">
             <span className="font-semibold">Name:</span> {name}
           </Text>
-          <Text className="text-lg">
+          <Text className="text-xl">
             <span className="font-semibold">E-Mail:</span> {email}
           </Text>
-          <Text className="text-lg">
+          <Text className="text-xl">
             <span className="font-semibold">Nachricht:</span>
           </Text>
-          <Text className="text-lg whitespace-pre-line">{message}</Text>
+          <Text className="text-xl whitespace-pre-line">{message}</Text>
         </Column>
       </Row>
     </Section>
