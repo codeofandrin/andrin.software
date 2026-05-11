@@ -97,13 +97,17 @@ function ContactForm() {
 
     setLoading(true)
 
+    const ERROR_MESSAGES: Record<number, string> = {
+      400: "Ungültige Eingabe. Bitte überprüfen Sie Ihre Angaben.",
+      429: "Zu viele Anfragen. Bitte versuchen Sie es später erneut.",
+      500: "Serverfehler. Bitte versuchen Sie es später erneut."
+    }
+
     try {
       const formData = new FormData(e.currentTarget)
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.get("name"),
           email: formData.get("email"),
@@ -113,29 +117,22 @@ function ContactForm() {
       })
 
       if (!response.ok) {
-        let message = "Request failed"
-        try {
-          const data = await response.json()
-          if (data?.error) {
-            message = `Request failed: ${data.error}`
-          }
-        } catch {}
-
-        throw new Error(message)
+        throw new Error(
+          ERROR_MESSAGES[response.status] ??
+            "Nachricht konnte nicht gesendet werden. Bitte später erneut versuchen."
+        )
       }
 
       formRef.reset()
-
-      setToast({
-        type: "success",
-        message: "Nachricht erfolgreich gesendet."
-      })
+      setToast({ type: "success", message: "Nachricht erfolgreich gesendet." })
     } catch (error) {
       console.error(error)
-
       setToast({
         type: "error",
-        message: "Nachricht konnte nicht gesendet werden. Bitte später erneut versuchen."
+        message:
+          error instanceof Error
+            ? error.message
+            : "Nachricht konnte nicht gesendet werden. Bitte später erneut versuchen."
       })
     } finally {
       setLoading(false)
