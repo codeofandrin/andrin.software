@@ -1,12 +1,12 @@
 "use client"
 
-import { useHashScroll } from "@/hooks/useHashScroll"
+import { useScrollToTop } from "@/hooks/useScrollToTop"
 import Header from "@/components/ui/Header"
 import Footer from "@/components/ui/Footer"
 import "../globals.css"
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  useHashScroll()
+  useScrollToTop()
   return (
     <html className="scroll-smooth" suppressHydrationWarning>
       <body className="h-full">

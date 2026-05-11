@@ -11,6 +11,7 @@ import SVGXMark from "@/assets/svg/icons/x_mark.svg"
 import ContentPadding from "./ContentPadding"
 import { useObfuscatedEmail } from "@/hooks/useObfuscatedEmail"
 import SVGEnvelope from "@/assets/svg/icons/envelope.svg"
+import { useNavigation } from "@/hooks/useNavigation"
 
 interface MobileMenuProps {
   setMenuOpen: (isOpen: boolean) => void
@@ -18,6 +19,7 @@ interface MobileMenuProps {
 
 function MobileMenu({ setMenuOpen }: MobileMenuProps) {
   const { href, label, reveal, isRevealed } = useObfuscatedEmail(EmailObfuscated.general)
+  const { handleNavClick } = useNavigation(() => setMenuOpen(false))
 
   return (
     <div className="max-h-screen overscroll-none">
@@ -29,14 +31,7 @@ function MobileMenu({ setMenuOpen }: MobileMenuProps) {
               <div key={`menu-item-${name}`}>
                 <Link
                   href={link}
-                  onClick={() => {
-                    setMenuOpen(false)
-                    // if same link, scroll manually to right position
-                    const hash = link.split("#")[1]
-                    if (hash && window.location.hash === `#${hash}`) {
-                      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" })
-                    }
-                  }}
+                  onClick={(e) => handleNavClick(e, link)}
                   className="text-primary-100 hover:text-primary-60 py-2 text-3xl font-extrabold transition-colors duration-300">
                   {name}
                 </Link>
@@ -66,6 +61,7 @@ function MobileMenu({ setMenuOpen }: MobileMenuProps) {
 export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { handleRouteChange, handleNavClick } = useNavigation(() => setMenuOpen(false))
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 0)
@@ -92,18 +88,7 @@ export default function Header() {
         <div className="flex h-full w-full justify-center">
           <div className="section-border-x-dashed-desktop sm:mx-body-desktop flex h-full w-full items-center justify-center sm:max-w-7xl">
             <div className="px-body-mobile flex w-full items-center justify-between py-5 sm:px-5 sm:py-7">
-              <Link
-                className="h-fit w-fit"
-                href={"/"}
-                onClick={(e) => {
-                  setMenuOpen(false)
-                  // Remove hash from URL to prevent Next.js from scrolling to the last anchor
-                  if (window.location.hash) {
-                    e.preventDefault()
-                    window.history.pushState(null, "", "/")
-                  }
-                  window.scrollTo({ top: 0, behavior: "smooth" })
-                }}>
+              <Link className="h-fit w-fit" href={"/"} onClick={(e) => handleRouteChange(e, "/")}>
                 <SVGLogoLarge className="w-[150px] sm:w-[180px]" />
               </Link>
               {/* Desktop Navigation */}
@@ -112,15 +97,7 @@ export default function Header() {
                   <div key={`menu-item-${name}`}>
                     <Link
                       href={link}
-                      onClick={() => {
-                        setMenuOpen(false)
-                        const hash = link.split("#")[1]
-                        if (hash && window.location.hash === `#${hash}`) {
-                          document
-                            .getElementById(hash)
-                            ?.scrollIntoView({ behavior: "smooth", block: "start" })
-                        }
-                      }}
+                      onClick={(e) => handleNavClick(e, link)}
                       className="text-primary-100 hover:text-primary-60 text-xl font-extrabold transition-colors duration-300">
                       {name}
                     </Link>

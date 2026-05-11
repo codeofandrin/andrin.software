@@ -7,6 +7,7 @@ import Highlight from "../ui/Highlight"
 import SVGArrowDown from "@/assets/svg/icons/arrow_down.svg"
 import SVGHeroIllustration from "@/assets/svg/illustrations/hero_illustration.svg"
 import SectionContainer from "./SectionContainer"
+import { useNavigation } from "@/hooks/useNavigation"
 
 function HeroHeader() {
   return (
@@ -30,16 +31,14 @@ function HeroSubline() {
 }
 
 function HeroContactLink() {
+  const { handleNavClick } = useNavigation()
+
   const hash = "kontakt"
   return (
     <Link
       href={`/#${hash}`}
       className="text-primary-40 flex items-center"
-      onClick={() => {
-        if (window.location.hash === `#${hash}`) {
-          document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" })
-        }
-      }}>
+      onClick={(e) => handleNavClick(e, `/#${hash}`)}>
       <span className="pb-1 text-xl leading-none sm:text-2xl">Kontakt</span>
       <SVGArrowDown className="ml-2 w-4 stroke-2" />
     </Link>
