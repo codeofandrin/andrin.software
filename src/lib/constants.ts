@@ -3,7 +3,8 @@ export class EmailObfuscated {
 }
 
 export class Socials {
-  static linkedIn = "https://linkedin.com/in/andrin-schaller"
+  static linkedInPersonal = "https://linkedin.com/in/andrin-schaller"
+  static linkedInBusiness = "https://linkedin.com/company/andrin-software"
 }
 
 export class Routes {

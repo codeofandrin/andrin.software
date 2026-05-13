@@ -62,7 +62,7 @@ function AboutPortrait() {
   return (
     <div className="flex justify-center lg:justify-start">
       <Link
-        href={Socials.linkedIn}
+        href={Socials.linkedInPersonal}
         target="_blank"
         className="group relative h-[270px] w-[220px] overflow-hidden rounded-lg lg:h-[220px] lg:w-[180px]">
         {/* Portrait Mobile */}
@@ -81,7 +81,7 @@ function AboutPortrait() {
           fill
           sizes="220px"
         />
-        <SVGLinkedin className="absolute right-0 bottom-0 z-[99] mr-2 mb-2 origin-bottom-right scale-40 rounded-lg fill-black/30 transition-colors duration-300 group-hover:bg-[#00A0DC] group-hover:fill-white" />
+        <SVGLinkedin className="absolute right-0 bottom-0 z-[99] mr-2 mb-2 size-8 origin-bottom-right rounded-sm fill-black/30 transition-colors duration-300 group-hover:bg-[#00A0DC] group-hover:fill-white" />
       </Link>
     </div>
   )

@@ -1,15 +1,16 @@
 import Link from "next/link"
 
-import { MENU_ITEMS } from "@/lib/constants"
+import { MENU_ITEMS, Socials } from "@/lib/constants"
 import ContentPadding from "./ContentPadding"
 import SVGLogoSmall from "@/assets/svg/brand/logo_small.svg"
+import SVGLinkedin from "@/assets/svg/socials/linkedin.svg"
 import { useNavigation } from "@/hooks/useNavigation"
 
 function FooterNavigation() {
   const { handleNavClick } = useNavigation()
 
   return (
-    <div className="mt-8 grid gap-5 md:mt-0 md:flex md:gap-15">
+    <div className="mt-8 grid gap-5 lg:mt-0 lg:flex lg:gap-15">
       {MENU_ITEMS.map(({ name, link }) => {
         return (
           <div key={`footer-item-${name}`}>
@@ -64,14 +65,26 @@ export default function Footer() {
   const { handleRouteChange } = useNavigation()
 
   return (
-    <footer className="sm:mx-body-desktop flex-col md:flex md:items-center">
+    <footer className="sm:mx-body-desktop flex-col lg:flex lg:items-center">
       <div className="w-full sm:max-w-7xl">
-        <ContentPadding className="section-border-x-dashed-desktop">
-          <div className="py-20 md:flex md:items-center md:justify-between md:py-10">
-            <div className="h-fit w-fit">
-              <Link href={"/"} onClick={(e) => handleRouteChange(e, "/")}>
-                <SVGLogoSmall className="w-[70px]" />
+        <ContentPadding className="section-border-x-dashed-desktop pt-20 pb-2 lg:pt-10">
+          <div className="lg:flex lg:items-start lg:justify-between">
+            <div className="flex h-fit w-fit flex-col">
+              <Link href={"/"} onClick={(e) => handleRouteChange(e, "/")} className="w-fit">
+                <SVGLogoSmall className="h-[35px]" />
               </Link>
+              <p className="text-primary-60 mt-3 text-xl leading-tight">
+                Individuelle Software Lösungen
+                <br />
+                für Ihr KMU.
+              </p>
+              <div className="mt-8">
+                <Link href={Socials.linkedInBusiness} target="_blank">
+                  <div className="h-fit w-fit rounded-xs bg-neutral-300 p-0.25 transition-colors duration-300 hover:bg-[#00A0DC]">
+                    <SVGLinkedin className="size-4 fill-white" />
+                  </div>
+                </Link>
+              </div>
             </div>
             <FooterNavigation />
           </div>
