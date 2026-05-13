@@ -11,7 +11,7 @@ const ITEMS = [
     title: "exifoo",
     description:
       "Desktop-App zum automatischen Umbenennen von Fotos und Videos anhand des Aufnahmedatums – kostenlos und Open-Source",
-    link: "https://exifoo.com",
+    link: "https://exifoo.andrin.software",
     imagePath: "/images/exifoo_showcase.png",
     imageTransforms: "opacity-25 group-hover:opacity-100"
   },
@@ -28,7 +28,7 @@ const ITEMS = [
     type: "Website",
     title: "wannfrei.ch",
     description: "Übersichtliche Website für nationale, kantonale und regionale Feiertage der Schweiz",
-    link: "https://wannfrei.ch",
+    link: "https://wannfrei.andrin.software",
     imagePath: "/images/wannfrei_showcase.png",
     imageTransforms: "scale-125 translate-x-2 translate-y-5 opacity-25 group-hover:opacity-100"
   },
