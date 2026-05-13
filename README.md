@@ -1,6 +1,5 @@
 <p align="center">
-    <a href="https://andrin.software" target="_blank"><img src="src/assets/svg/brand/logo_large_dark.svg" width="300px"></a>
-    <h3 align="center">Individuelle Software Lösungen für Ihr KMU.</h3>
+    <a href="https://andrin.software" target="_blank"><img src="banner_github_readme.png"></a>
 </p>
 
 ---
