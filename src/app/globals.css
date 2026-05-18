@@ -88,7 +88,7 @@
 }
 
 .content ul {
-  @apply my-3 ml-3 list-inside list-disc text-xl text-neutral-700;
+  @apply my-3 ml-3 list-inside list-disc text-xl text-neutral-700 sm:text-2xl;
 }
 
 .content .spacer {
