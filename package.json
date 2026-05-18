@@ -1,7 +1,7 @@
 {
   "name": "andrin.software",
   "description": "Personal website of Andrin Schaller",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": true,
   "scripts": {
     "dev": "rm -r .next | next dev --webpack",
