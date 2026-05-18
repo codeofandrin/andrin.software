@@ -78,7 +78,7 @@ export default function Footer() {
                 <br />
                 für Ihr KMU.
               </p>
-              <div className="mt-8">
+              <div className="mt-8 w-fit">
                 <Link href={Socials.linkedInBusiness} target="_blank">
                   <div className="h-fit w-fit rounded-xs bg-neutral-300 p-0.25 transition-colors duration-300 hover:bg-[#00A0DC]">
                     <SVGLinkedin className="size-4 fill-white" />
