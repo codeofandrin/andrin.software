@@ -37,7 +37,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<APIRespon
     }
 
     // skip errors
-    await sendConfirmationEmail(name)
+    await sendConfirmationEmail(email)
 
     return NextResponse.json({ success: true }, { status: 200 })
   } catch (error) {
