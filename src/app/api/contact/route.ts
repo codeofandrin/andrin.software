@@ -37,7 +37,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<APIRespon
     }
 
     // skip errors
-    await sendConfirmationEmail(name, email, message)
+    await sendConfirmationEmail(name)
 
     return NextResponse.json({ success: true }, { status: 200 })
   } catch (error) {
@@ -62,13 +62,13 @@ async function sendNotificationEmail(name: string, email: string, message: strin
   return { success: true, data }
 }
 
-async function sendConfirmationEmail(name: string, email: string, message: string) {
+async function sendConfirmationEmail(email: string) {
   const { data, error } = await resend.emails.send({
     from: `andrin.software <${EmailBackend.general}>`,
     replyTo: EmailBackend.general,
     to: [email],
     subject: `Danke für Ihre Kontaktanfrage`,
-    react: ContactConfirmationEmail({ name, email, message })
+    react: ContactConfirmationEmail()
   })
 
   if (error) {

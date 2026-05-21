@@ -3,13 +3,7 @@ import Header from "@/components/emails/Header"
 import Content from "@/components/emails/contact-confirmation/Content"
 import Footer from "@/components/emails/Footer"
 
-interface ContactConfirmationEmailProps {
-  name: string
-  email: string
-  message: string
-}
-
-export default function ContactConfirmationEmail({ name, email, message }: ContactConfirmationEmailProps) {
+export default function ContactConfirmationEmail() {
   return (
     <Html>
       <Head>
@@ -50,7 +44,7 @@ export default function ContactConfirmationEmail({ name, email, message }: Conta
       <Tailwind>
         <Body>
           <Header />
-          <Content name={name} email={email} message={message} />
+          <Content />
           <Footer />
         </Body>
       </Tailwind>
