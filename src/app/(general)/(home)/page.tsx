@@ -5,7 +5,7 @@ import About from "@/components/home/About"
 import Contact from "@/components/home/Contact"
 
 export const metadata = {
-  title: "andrin.software - Individuelle Software für KMUs und Selbständige",
+  title: "andrin.software - Individuelle Software für Selbständige",
   description:
     "Vom modernen Webauftritt bis zu internen Automatisierungen unterstütze ich Sie dort, wo Standardlösungen an ihre Grenzen stossen.",
   keywords:

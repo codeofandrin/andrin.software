@@ -15,7 +15,7 @@ function HeroHeader() {
       <span className="font-['DM-Serif'] text-[2.5rem] font-bold italic sm:text-[3.1rem]">Individuelle</span>{" "}
       Software Lösungen für{" "}
       <span className="pt-2 leading-14 sm:leading-18">
-        <Highlight px="px-2">KMUs und Selbständige</Highlight>
+        <Highlight px="px-2">Selbständige</Highlight>
       </span>
     </h1>
   )
