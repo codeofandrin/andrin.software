@@ -5,11 +5,11 @@ import About from "@/components/home/About"
 import Contact from "@/components/home/Contact"
 
 export const metadata = {
-  title: "andrin.software - Individuelle Lösungen für Schweizer KMU",
+  title: "andrin.software - Individuelle Software für KMUs und Selbständige",
   description:
-    "Von internen Tools bis Automatisierungen unterstütze ich Sie dort, wo Standardlösungen an ihre Grenzen stossen.",
+    "Vom modernen Webauftritt bis zu internen Automatisierungen unterstütze ich Sie dort, wo Standardlösungen an ihre Grenzen stossen.",
   keywords:
-    "Andrin Schaller, Andrin, andrin.software, Schaller, Individuelle Software, KMU Software, Software für KMU, Digitale Lösungen",
+    "Andrin Schaller, Andrin, andrin.software, Schaller, Individuelle Software, KMU Software, Software für KMU, Digitale Lösungen, Webseite erstellen, Webentwicklung",
   authors: [{ name: "Andrin Schaller" }],
   publisher: "Andrin Schaller"
 }

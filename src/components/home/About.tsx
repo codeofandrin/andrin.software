@@ -41,7 +41,7 @@ function AboutIntroduction() {
       <h3 className="font-['DM-Serif'] text-2xl font-bold italic sm:text-3xl">Andrin Schaller</h3>
       <div className="mt-3 flex flex-col text-xl sm:mt-6 sm:gap-4 sm:text-2xl">
         <p>
-          Als selbständiger Software Engineer entwickle ich Anwendungen für KMUs und Einzelunternehmer:innen.
+          Als selbständiger Software Engineer entwickle ich Anwendungen für KMUs und Selbständige.
           <br />
           Dabei arbeite ich bewusst Solo: direkt und ohne Umwege, um zusätzliche Projektkosten zu sparen.
         </p>

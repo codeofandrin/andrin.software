@@ -76,7 +76,7 @@ export default function Footer() {
               <p className="text-primary-60 mt-3 text-xl leading-tight">
                 Individuelle Software Lösungen
                 <br />
-                für Ihr KMU.
+                für KMUs und Selbständige.
               </p>
               <div className="mt-8 w-fit">
                 <Link href={Socials.linkedInBusiness} target="_blank">

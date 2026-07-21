@@ -13,10 +13,10 @@ function HeroHeader() {
   return (
     <h1 className="text-primary-100 text-[2.7rem] leading-11 font-bold sm:text-[3.5rem] sm:leading-14">
       <span className="font-['DM-Serif'] text-[2.5rem] font-bold italic sm:text-[3.1rem]">Individuelle</span>{" "}
-      Software Lösungen{" "}
-      <div className="pt-2 leading-14 sm:leading-18">
-        <Highlight px="px-2">für Ihr KMU</Highlight>
-      </div>
+      Software Lösungen für{" "}
+      <span className="pt-2 leading-14 sm:leading-18">
+        <Highlight px="px-2">KMUs und Selbständige</Highlight>
+      </span>
     </h1>
   )
 }
@@ -24,8 +24,8 @@ function HeroHeader() {
 function HeroSubline() {
   return (
     <p className="text-primary-70 text-2xl sm:text-3xl">
-      Von internen Tools bis Automatisierungen unterstütze ich Sie dort, wo Standardlösungen an ihre Grenzen
-      stossen.
+      Vom modernen Webauftritt bis zu internen Automatisierungen unterstütze ich Sie dort, wo Standardlösungen
+      an ihre Grenzen stossen.
     </p>
   )
 }
