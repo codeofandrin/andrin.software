@@ -34,7 +34,10 @@ function FooterLegal() {
     <>
       {/* Desktop */}
       <div className="mt-2 hidden justify-between border-t-[0.5px] border-neutral-300 pt-5 pb-5 text-neutral-400 md:flex">
-        <p className="text-center">Copyright © 2026 andrin.software. Alle Rechte vorbehalten.</p>
+        <div className="flex flex-col">
+          <p>Made in Switzerland 🇨🇭</p>
+          <p>Copyright © 2026 andrin.software. Alle Rechte vorbehalten.</p>
+        </div>
         <div className="flex justify-center gap-10">
           <Link href="/impressum" onClick={(e) => handleRouteChange(e, "/impressum")}>
             Impressum
@@ -56,6 +59,7 @@ function FooterLegal() {
           </Link>
         </div>
         <p className="text-center">Copyright © 2026 andrin.software. Alle Rechte vorbehalten.</p>
+        <p className="text-center">Made in Switzerland 🇨🇭</p>
       </div>
     </>
   )
