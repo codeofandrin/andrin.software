@@ -1,8 +1,4 @@
 import Hero from "@/components/home/Hero"
-import Services from "@/components/home/Services"
-import Projects from "@/components/home/Projects"
-import About from "@/components/home/About"
-import Contact from "@/components/home/Contact"
 
 export const metadata = {
   title: "andrin.software - Individuelle Software für Selbständige und KMU",
