@@ -1,4 +1,4 @@
-import Hero from "@/components/home/Hero"
+import Hero from "@/components/home/hero"
 
 export const metadata = {
   title: "andrin.software - Individuelle Software für Selbständige und KMU",
@@ -12,12 +12,8 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="w-full sm:flex sm:flex-col sm:items-center">
+    <div>
       <Hero />
-      <Services />
-      <Projects />
-      <About />
-      <Contact />
     </div>
   )
 }
