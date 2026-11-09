@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import LogoSmall from "@/assets/svg/brand/Logo_small.svg"
+import ApsdigitalIcon from "@/assets/svg/brand/apsdigital_icon_white.svg"
+import ApsdigitalIcon2 from "@/assets/svg/brand/apsdigital_icon_black.svg"
+
 import CTAButton from "@/components/ui/cta-button"
 import { Mail, ArrowRight } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
@@ -155,7 +157,10 @@ function FullscreenNav({ items, contact }: NavViewProps) {
           aria-label="Home"
           onClick={close}
           className="flex h-10 items-center rounded-full pr-5 text-white focus-visible:outline-none">
-          <LogoSmall className="size-15" />
+          <ApsdigitalIcon className="size-15 mr-4" />
+          <p className="font-clashdisplay text-[31px]">
+            <span className="font-semibold">aps</span>
+            <span className="font-light ml-2">Digital</span></p>
         </Link>
 
         <button

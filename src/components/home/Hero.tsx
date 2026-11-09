@@ -6,6 +6,7 @@ import { SweepTextReveal } from "../ui/sweep-text-reveal"
 import HeroBackground from "./hero/hero-background"
 import CTAButton from "../ui/cta-button"
 import SecondaryButton from "../ui/secondary-button"
+import { ScrollRevealText } from "../ui/scroll-reveal-text"
 
 export default function Hero() {
   const timelineRef = useRef<HTMLDivElement>(null)

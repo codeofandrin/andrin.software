@@ -14,7 +14,7 @@ export function useNavigation(onNavigate?: () => void) {
     }
 
     if (window.location.pathname === path) {
-      window.scrollTo({ top: 0, behavior: "instant" })
+      window.scrollTo({ top: 0, behavior: "smooth" })
     }
 
     router.push(path)

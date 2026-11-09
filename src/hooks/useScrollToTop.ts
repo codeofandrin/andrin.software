@@ -13,7 +13,7 @@ export function useScrollToTop() {
         document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" })
       }, 100)
     } else {
-      window.scrollTo({ top: 0, behavior: "instant" })
+      window.scrollTo({ top: 0, behavior: "smooth" })
     }
   }, [pathname])
 }

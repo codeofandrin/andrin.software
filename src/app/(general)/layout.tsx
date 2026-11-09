@@ -1,13 +1,13 @@
-"use client"
+// "use client"
 
-import { useScrollToTop } from "@/hooks/useScrollToTop"
+// import { useScrollToTop } from "@/hooks/useScrollToTop"
 import "../globals.css"
 import Navbar from "@/components/navbar"
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  useScrollToTop()
+  // useScrollToTop()
   return (
-    <html className="scroll-smooth" suppressHydrationWarning>
+    <html className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body>
         <Navbar />
         {children}
